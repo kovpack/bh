@@ -7,6 +7,7 @@ defmodule Bh.Mixfile do
       version: "0.0.1",
       elixir: "~> 1.2",
       package: package,
+      description: description,
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
       deps: deps
@@ -18,6 +19,12 @@ defmodule Bh.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     [applications: [:logger]]
+  end
+
+  def description do
+    """
+    Twitter Bootstrap 4 helpers for Phoenix.
+    """
   end
 
   # Dependencies can be Hex packages:
