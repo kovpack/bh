@@ -4,7 +4,8 @@ Twitter Bootstrap 4 helpers for Phoenix.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+Package is [available in Hex](https://hex.pm/packages/bh) and can be installed
+as:
 
 - Add `:bh` to your list of dependencies in `mix.exs`:
 
@@ -38,3 +39,6 @@ end
 <%= hb_label_pill "Pill text", type: :success %>
 ```
 
+## Licence
+
+MIT
