@@ -36,7 +36,7 @@ end
 - Now you can use helpers in your view like this:
 
 ```
-<%= hb_label_pill "Pill text", type: :success %>
+<%= bh_label_pill "Pill text", type: :success %>
 ```
 
 ## Licence
