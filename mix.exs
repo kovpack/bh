@@ -30,7 +30,7 @@ defmodule Bh.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:phoenix_html, "~> 2.6"}]
   end
 
   defp package do
