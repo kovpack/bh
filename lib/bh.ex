@@ -3,9 +3,9 @@ defmodule Bh do
   Twitter Bootstrap 4 helpers for Phoenix.
   """
 
-  def bh_label(text), do: Bh.Label.bh_label(text)
-  def bh_label(text, opts), do: Bh.Label.bh_label(text, opts)
+  defdelegate bh_label(text), to: Bh.Label
+  defdelegate bh_label(text, opts), to: Bh.Label
 
-  def bh_label_pill(text), do: Bh.Label.bh_label_pill(text)
-  def bh_label_pill(text, opts), do: Bh.Label.bh_label_pill(text, opts)
+  defdelegate bh_label_pill(text), to: Bh.Label
+  defdelegate bh_label_pill(text, opts), to: Bh.Label
 end
