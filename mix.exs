@@ -8,6 +8,7 @@ defmodule Bh.Mixfile do
       elixir: "~> 1.2",
       package: package,
       description: description,
+      source_url: "https://github.com/kovpack/bh",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
       deps: deps
@@ -37,7 +38,10 @@ defmodule Bh.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:phoenix_html, "~> 2.6"}]
+    [
+      {:phoenix_html, "~> 2.6"},
+      {:ex_doc, "~> 0.12", only: :dev}
+    ]
   end
 
   defp package do
