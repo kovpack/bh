@@ -43,6 +43,7 @@ defmodule Bh do
   defmacro __using__(_) do
     quote do
       import Bh.Label
+      import Bh.Button
     end
   end
 end

@@ -24,7 +24,7 @@ defmodule Bh.LabelTest do
 
   test "raises exception if invalid label type provided" do
     assert_raise ArgumentError, "Unsupported label type", fn ->
-      bh_label("Text", type: :unsupported)
+      bh_label "Text", type: :unsupported
     end
   end
 
@@ -46,7 +46,7 @@ defmodule Bh.LabelTest do
 
   test "raises exception if invalid label-pill type provided" do
     assert_raise ArgumentError, "Unsupported label type", fn ->
-      bh_label_pill("Text", type: :unsupported)
+      bh_label_pill "Text", type: :unsupported
     end
   end
 end
