@@ -33,7 +33,7 @@ defmodule Bh.Bh4.Button do
       text
     end
   end
-  def bh_button(text, context: _) do
+  def bh_button(_, context: _) do
     raise ArgumentError, message: "Unsupported button context"
   end
 
@@ -61,7 +61,7 @@ defmodule Bh.Bh4.Button do
       text
     end
   end
-  def bh_button_outline(text, context: _) do
+  def bh_button_outline(_, context: _) do
     raise ArgumentError, message: "Unsupported button context"
   end
 end

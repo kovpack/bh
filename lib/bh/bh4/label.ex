@@ -31,7 +31,7 @@ defmodule Bh.Bh4.Label do
       text
     end
   end
-  def bh_label(text, context: _) do
+  def bh_label(_, context: _) do
     raise ArgumentError, message: "Unsupported label context"
   end
 
@@ -58,7 +58,7 @@ defmodule Bh.Bh4.Label do
       text
     end
   end
-  def bh_label_pill(text, context: _) do
+  def bh_label_pill(_, context: _) do
     raise ArgumentError, message: "Unsupported label context"
   end
 end
