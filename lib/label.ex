@@ -3,25 +3,25 @@ defmodule Bh.Label do
 
   @default :default
 
-  @types [@default, :primary, :success, :info, :warning, :danger]
+  @contexts [@default, :primary, :success, :info, :warning, :danger]
 
-  def bh_label(text), do: bh_label(text, type: @default)
-  def bh_label(text, type: type) when type in @types do
-    content_tag :span, class: "label label-#{type}" do
+  def bh_label(text), do: bh_label(text, context: @default)
+  def bh_label(text, context: context) when context in @contexts do
+    content_tag :span, class: "label label-#{context}" do
       text
     end
   end
-  def bh_label(text, type: _) do
-    raise ArgumentError, message: "Unsupported label type"
+  def bh_label(text, context: _) do
+    raise ArgumentError, message: "Unsupported label context"
   end
 
-  def bh_label_pill(text), do: bh_label_pill(text, type: @default)
-  def bh_label_pill(text, type: type) when type in @types do
-    content_tag :span, class: "label label-pill label-#{type}" do
+  def bh_label_pill(text), do: bh_label_pill(text, context: @default)
+  def bh_label_pill(text, context: context) when context in @contexts do
+    content_tag :span, class: "label label-pill label-#{context}" do
       text
     end
   end
-  def bh_label_pill(text, type: _) do
-    raise ArgumentError, message: "Unsupported label type"
+  def bh_label_pill(text, context: _) do
+    raise ArgumentError, message: "Unsupported label context"
   end
 end

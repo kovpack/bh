@@ -33,7 +33,7 @@ defmodule Bh do
 
   Or if you need other type of pill, you can specify its type:
 
-      <%= bh_label_pill "Danger pill label", type: :danger %>
+      <%= bh_label_pill "Danger pill label", context: :danger %>
 
   Which will result in such markup:
 
