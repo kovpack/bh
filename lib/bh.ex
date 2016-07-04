@@ -31,7 +31,7 @@ defmodule Bh do
 
       <%= bh_label_pill "Default pill label" %>
 
-  Or if you need other type of pill, you can specify its type:
+  Or if you need other type of pill, you can specify its context:
 
       <%= bh_label_pill "Danger pill label", context: :danger %>
 
