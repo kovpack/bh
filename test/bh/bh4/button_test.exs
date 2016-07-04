@@ -1,8 +1,8 @@
-defmodule Bh.ButtonTest do
+defmodule Bh.Bh4.ButtonTest do
   use ExUnit.Case, async: true
   use Phoenix.HTML
 
-  import Bh.Button
+  import Bh.Bh4.Button
 
   @contexts [:primary, :secondary, :success, :info, :warning, :danger, :link]
 

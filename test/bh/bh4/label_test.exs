@@ -1,8 +1,8 @@
-defmodule Bh.LabelTest do
+defmodule Bh.Bh4.LabelTest do
   use ExUnit.Case, async: true
   use Phoenix.HTML
 
-  import Bh.Label
+  import Bh.Bh4.Label
 
   @contexts [:default, :primary, :success, :info, :warning, :danger]
 

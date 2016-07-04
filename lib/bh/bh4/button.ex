@@ -1,4 +1,8 @@
-defmodule Bh.Button do
+defmodule Bh.Bh4.Button do
+  @moduledoc """
+  Twitter Bootstrap 4 button helpers for Phoenix.
+  """
+
   use Phoenix.HTML
 
   @default :primary

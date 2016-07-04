@@ -1,4 +1,7 @@
-defmodule Bh.Label do
+defmodule Bh.Bh4.Label do
+  @moduledoc """
+  Twitter Bootstrap 4 label helpers for Phoenix.
+  """
   use Phoenix.HTML
 
   @default :default
