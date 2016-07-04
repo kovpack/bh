@@ -1,10 +1,12 @@
 defmodule Bh.Mixfile do
   use Mix.Project
 
+  @version "0.0.1"
+
   def project do
     [
       app: :bh,
-      version: "0.0.1",
+      version: version,
       elixir: "~> 1.2",
       package: package,
       description: description,
@@ -15,9 +17,6 @@ defmodule Bh.Mixfile do
     ]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type "mix help compile.app" for more information
   def application do
     [applications: [:logger]]
   end
@@ -28,15 +27,8 @@ defmodule Bh.Mixfile do
     """
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
-  # Type "mix help deps" for more examples and options
+  def version, do: @version
+
   defp deps do
     [
       {:phoenix_html, "~> 2.6"},

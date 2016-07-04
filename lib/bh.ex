@@ -5,6 +5,24 @@ defmodule Bh do
   This package is designed to minimize repetitive code and the amount of HTML
   markup in your project's source code.
 
+  ## Installation:
+
+  Add this package to the list of dependencies in your project's `mix.exs` file:
+
+      def deps do
+        [{:bh, "~> #{Bh.Mixfile.version}"}]
+      end
+
+  ## Usage
+
+  Use `use Bh` in your view file to import all helpers at once:
+
+      defmodule YourApp.SomeView do
+        use YourApp.Web, :view
+        use Bh
+      end
+
+  Now you can use all helpers directly calling `bh_label/1`, `bh_label/2` etc.
   E.g., if you need Bootstrap 4 pill label, instead of adding this HTML
 
       <span class="label label-pill label-default">Default pill label</span>
@@ -22,9 +40,9 @@ defmodule Bh do
       <span class="label label-pill label-danger">Danger pill label</span>
   """
 
-  defdelegate bh_label(text), to: Bh.Label
-  defdelegate bh_label(text, opts), to: Bh.Label
-
-  defdelegate bh_label_pill(text), to: Bh.Label
-  defdelegate bh_label_pill(text, opts), to: Bh.Label
+  defmacro __using__(_) do
+    quote do
+      import Bh.Label
+    end
+  end
 end

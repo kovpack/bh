@@ -7,7 +7,7 @@ Twitter Bootstrap 4 helpers for Phoenix.
 Package is [available in Hex](https://hex.pm/packages/bh) and can be installed
 as:
 
-- Add `:bh` to your list of dependencies in `mix.exs`:
+- Add `:bh` of the needed version to the list of dependencies in `mix.exs`:
 
 ```
 def deps do
@@ -15,21 +15,12 @@ def deps do
 end
 ```
 
-- Import all `Bh` helpers into needed view:
+- Use `use Bh` to import all helpers into needed view:
 
 ```
 defmodule YourApp.SomeView do
   use YourApp.Web, :view
-  import Bh
-end
-```
-
-- It is also possible to import only one needed module:
-
-```
-defmodule YourApp.SomeView do
-  use YourApp.Web, :view
-  import Bh.Label
+  use Bh
 end
 ```
 
