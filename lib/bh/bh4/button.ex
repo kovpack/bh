@@ -10,7 +10,7 @@ defmodule Bh.Bh4.Button do
   @contexts [@default, :secondary, :success, :info, :warning, :danger, :link]
 
   @doc """
-  Generates default primary button markup.
+  Generates primary button markup.
 
   Resulting HTML:
 
@@ -38,7 +38,7 @@ defmodule Bh.Bh4.Button do
   end
 
   @doc """
-  Generates default primary outline button.
+  Generates primary outline button.
 
   Resulting HTML markup:
 
