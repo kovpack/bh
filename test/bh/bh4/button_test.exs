@@ -16,6 +16,89 @@ defmodule Bh.Bh4.ButtonTest do
     assert rendered == expected
   end
 
+  test "all button sizes are rendered properly" do
+    sizes = [small: "sm", large: "lg"]
+
+    for {key, val} <- sizes do
+      expected =
+        """
+        <button class="btn btn-primary btn-#{val}" type="button">\
+        Button\
+        </button>\
+        """
+
+      rendered =
+        bh_button("Button", size: key)
+        |> Phoenix.HTML.safe_to_string
+
+      assert rendered == expected
+    end
+  end
+
+  test "button block layout rendered properly" do
+    expected =
+      """
+      <button class="btn btn-primary btn-block" type="button">\
+      Button\
+      </button>\
+      """
+
+    rendered =
+      bh_button("Button", layout: :block)
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
+
+  test "button extra classes rendered properly" do
+    expected =
+      """
+      <button class="btn btn-primary something special" type="button">\
+      Button\
+      </button>\
+      """
+
+    rendered =
+      bh_button("Button", class: "something special")
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
+
+  test "button data attributes rendered properly" do
+    expected =
+      """
+      <button class="btn btn-primary" data-other-val="other value" data-val="value" type="button">\
+      Button\
+      </button>\
+      """
+
+    rendered =
+      bh_button("Button", data: [val: "value", other_val: "other value"])
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
+
+  test "button is rendered properly with multiple options" do
+    expected =
+      """
+      <button class="btn btn-primary btn-lg btn-block other class" data-other-val="other value" data-val="value" id="my_id" type="button">\
+      Button\
+      </button>\
+      """
+
+    rendered =
+      bh_button("Button", id:     "my_id",
+                          size:   :large,
+                          layout: :block,
+                          class:  "other class",
+                          data:   [val: "value", other_val: "other value"])
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
+
   test "all valid button contexts are rendered properly" do
     for context <- @contexts do
       expected =
@@ -29,18 +112,95 @@ defmodule Bh.Bh4.ButtonTest do
     end
   end
 
-  test "raises expection if invalid button context provided" do
-    assert_raise ArgumentError, "Unsupported button context", fn ->
-      bh_button "Button", context: :unsupported
-    end
-  end
-
   test "default outline button context is rendered as primary" do
     expected =
       ~s(<button class="btn btn-primary-outline" type="button">Button</button>)
 
     rendered =
       bh_button_outline("Button")
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
+
+  test "all outline button sizes are rendered properly" do
+    sizes = [small: "sm", large: "lg"]
+
+    for {key, val} <- sizes do
+      expected =
+        """
+        <button class="btn btn-primary-outline btn-#{val}" type="button">\
+        Button\
+        </button>\
+        """
+
+      rendered =
+        bh_button_outline("Button", size: key)
+        |> Phoenix.HTML.safe_to_string
+
+      assert rendered == expected
+    end
+  end
+
+  test "outline button block layout rendered properly" do
+    expected =
+      """
+      <button class="btn btn-primary-outline btn-block" type="button">\
+      Button\
+      </button>\
+      """
+
+    rendered =
+      bh_button_outline("Button", layout: :block)
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
+
+  test "outline button extra classes rendered properly" do
+    expected =
+      """
+      <button class="btn btn-primary-outline something special" type="button">\
+      Button\
+      </button>\
+      """
+
+    rendered =
+      bh_button_outline("Button", class: "something special")
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
+
+  test "outline button data attributes rendered properly" do
+    expected =
+      """
+      <button class="btn btn-primary-outline" data-other-val="other value" data-val="value" type="button">\
+      Button\
+      </button>\
+      """
+
+    rendered =
+      bh_button_outline("Button", data: [val: "value", other_val: "other value"])
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
+
+  test "outline button is rendered properly with multiple options" do
+    expected =
+      """
+      <button class="btn btn-primary-outline btn-lg btn-block other class" data-other-val="other value" data-val="value" id="my_id" type="button">\
+      Button\
+      </button>\
+      """
+
+    rendered =
+      bh_button_outline("Button", id:     "my_id",
+                                  size:   :large,
+                                  layout: :block,
+                                  class:  "other class",
+                                  data:   [val: "value", other_val: "other value"])
       |> Phoenix.HTML.safe_to_string
 
     assert rendered == expected
@@ -56,12 +216,6 @@ defmodule Bh.Bh4.ButtonTest do
         |> Phoenix.HTML.safe_to_string
 
       assert rendered == expected
-    end
-  end
-
-  test "raises expection if invalid outline button context provided" do
-    assert_raise ArgumentError, "Unsupported button context", fn ->
-      bh_button_outline "Button", context: :unsupported
     end
   end
 end
