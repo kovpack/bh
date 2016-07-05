@@ -67,11 +67,13 @@ defmodule Bh.Bh4.ButtonTest do
 
   test "button data attributes rendered properly" do
     expected =
-      """
-      <button class="btn btn-primary" data-other-val="other value" data-val="value" type="button">\
-      Button\
-      </button>\
-      """
+      ~s(<button )                        <>
+        ~s(class="btn btn-primary" )      <>
+        ~s(data-other-val="other value" ) <>
+        ~s(data-val="value" )             <>
+      ~s(type="button">)                  <>
+        ~s(Button)                        <>
+      ~s(</button>)
 
     rendered =
       bh_button("Button", data: [val: "value", other_val: "other value"])
@@ -82,11 +84,13 @@ defmodule Bh.Bh4.ButtonTest do
 
   test "button is rendered properly with multiple options" do
     expected =
-      """
-      <button class="btn btn-primary btn-lg btn-block other class" data-other-val="other value" data-val="value" id="my_id" type="button">\
-      Button\
-      </button>\
-      """
+      ~s(<button )                                                <>
+        ~s(class="btn btn-primary btn-lg btn-block other class" ) <>
+        ~s(data-other-val="other value" data-val="value" )        <>
+        ~s(id="my_id" )                                           <>
+      ~s(type="button">)                                          <>
+        ~s(Button)                                                <>
+      ~s(</button>)
 
     rendered =
       bh_button("Button", id:     "my_id",
@@ -174,14 +178,17 @@ defmodule Bh.Bh4.ButtonTest do
 
   test "outline button data attributes rendered properly" do
     expected =
-      """
-      <button class="btn btn-primary-outline" data-other-val="other value" data-val="value" type="button">\
-      Button\
-      </button>\
-      """
+      ~s(<button )                                         <>
+        ~s(class="btn btn-primary-outline" )               <>
+        ~s(data-other-val="other value" data-val="value" ) <>
+      ~s(type="button">)                                   <>
+        ~s(Button)                                         <>
+      ~s(</button>)
 
     rendered =
-      bh_button_outline("Button", data: [val: "value", other_val: "other value"])
+      bh_button_outline("Button",
+        data: [val: "value", other_val: "other value"]
+      )
       |> Phoenix.HTML.safe_to_string
 
     assert rendered == expected
@@ -189,18 +196,22 @@ defmodule Bh.Bh4.ButtonTest do
 
   test "outline button is rendered properly with multiple options" do
     expected =
-      """
-      <button class="btn btn-primary-outline btn-lg btn-block other class" data-other-val="other value" data-val="value" id="my_id" type="button">\
-      Button\
-      </button>\
-      """
+      ~s(<button )                                                        <>
+        ~s(class="btn btn-primary-outline btn-lg btn-block other class" ) <>
+        ~s(data-other-val="other value" data-val="value" )                <>
+        ~s(id="my_id" )                                                   <>
+      ~s(type="button">)                                                  <>
+        ~s(Button)                                                        <>
+      ~s(</button>)
 
     rendered =
-      bh_button_outline("Button", id:     "my_id",
-                                  size:   :large,
-                                  layout: :block,
-                                  class:  "other class",
-                                  data:   [val: "value", other_val: "other value"])
+      bh_button_outline("Button",
+        id:     "my_id",
+        size:   :large,
+        layout: :block,
+        class:  "other class",
+        data:   [val: "value", other_val: "other value"]
+      )
       |> Phoenix.HTML.safe_to_string
 
     assert rendered == expected
