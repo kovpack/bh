@@ -33,7 +33,7 @@ defmodule Bh.Bh4.Button do
 
     * `:data` - data attributes list.
 
-  ## Examples:
+  ## Examples
 
       <%= bh_button "Button" %>
       <button class="btn btn-primary" type="button">Button</button>
