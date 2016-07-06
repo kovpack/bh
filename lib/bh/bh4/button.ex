@@ -62,8 +62,8 @@ defmodule Bh.Bh4.Button do
   def bh_button(opts, [do: block]) when is_list(opts) do
     block =
       case block do
-        {:safe, [content]} -> {:safe, ["" | String.trim(content)]}
-        _                  -> block
+        {:safe, ["" | content]} -> {:safe, ["" | String.trim(content)]}
+        _                       -> block
       end
 
     bh_context_extended_button(block, opts)
@@ -83,8 +83,23 @@ defmodule Bh.Bh4.Button do
 
       <%= bh_button_outline "Button", context: :success %>
       <button class="btn btn-success-outline" type="button">Button</button>
+
+      <%= bh_button_outline data: [val: "value", other_val: "other_value"] do %>
+        <span><strong>Bold</strong> and <em>italic</em> text</span>
+      <% end %>
+      <button class="btn btn-primary-outline" data-other-val="other_value" data-val="value" type="button"><span><strong>Bold</strong> and <em>italic</em> text</span></button>
   """
-  def bh_button_outline(text, opts \\ []) do
+  def bh_button_outline(text, opts \\ [])
+  def bh_button_outline(opts, [do: block]) when is_list(opts) do
+    block =
+      case block do
+        {:safe, ["" | content]} -> {:safe, ["" | String.trim(content)]}
+        _                       -> block
+      end
+
+    bh_context_extended_button(block, opts, :outline)
+  end
+  def bh_button_outline(text, opts) when is_list(opts) do
     bh_context_extended_button(text, opts, :outline)
   end
 
