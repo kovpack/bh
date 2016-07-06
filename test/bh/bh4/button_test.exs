@@ -116,6 +116,23 @@ defmodule Bh.Bh4.ButtonTest do
     end
   end
 
+  test "button with complex block with safe text is rendered properly" do
+    for context <- @contexts do
+      expected =
+        ~s(<button class="btn btn-#{context}" type="button">)  <>
+          ~s(<span><b>Bold</b> and <i>italic</i> text</span>) <>
+        ~s(</button>)
+
+      rendered =
+        bh_button(context: context) do
+          {:safe, ["<span><b>Bold</b> and <i>italic</i> text</span>"]}
+        end
+        |> Phoenix.HTML.safe_to_string
+
+      assert rendered == expected
+    end
+  end
+
   test "default outline button context is rendered as primary" do
     expected =
       ~s(<button class="btn btn-primary-outline" type="button">Button</button>)

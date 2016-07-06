@@ -45,17 +45,27 @@ defmodule Bh.Bh4.Button do
       <button class="btn btn-danger something special" type="button">Button</button>
 
 
-  With data-attributes:
+  With data-attributes (note, that all `data-` keys in the resulting HTML are
+  dasharized):
 
       <%= bh_button "Button", data: [val: "value", other_val: "other_value"] %>
       <button class="btn btn-primary" data-other-val="other_value" data-val="value" type="button">Button</button>
 
-  Note, that all `data-` keys in the resulting HTML are dasharized.
+  Instead of a simple text you can pass complex markup as a block:
+
+      <%= bh_button context: :success, id: "my_id" do %>
+        <span><b>Bold</b> and <i>italics</i> in button text</span>
+      <% end %>
+      <button class="btn btn-success" id="my_id" type="button"><span><b>Bold</b> and <i>italics</i> in button text</span></button>
   """
-  def bh_button(text) do
-    bh_context_extended_button(text, [])
-  end
+  def bh_button(text, opts \\ [])
   def bh_button(opts, [do: block]) when is_list(opts) do
+    block =
+      case block do
+        {:safe, [content]} -> {:safe, ["" | String.trim(content)]}
+        _                  -> block
+      end
+
     bh_context_extended_button(block, opts)
   end
   def bh_button(text, opts) when is_list(opts) do
