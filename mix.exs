@@ -1,13 +1,13 @@
 defmodule Bh.Mixfile do
   use Mix.Project
 
-  @version "0.0.4"
+  @version "0.0.5"
 
   def project do
     [
       app: :bh,
       version: version,
-      elixir: "~> 1.2",
+      elixir: "~> 1.3",
       package: package,
       description: description,
       source_url: "https://github.com/kovpack/bh",
