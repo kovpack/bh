@@ -52,7 +52,13 @@ defmodule Bh.Bh4.Button do
 
   Note, that all `data-` keys in the resulting HTML are dasharized.
   """
-  def bh_button(text, opts \\ []) do
+  def bh_button(text) do
+    bh_context_extended_button(text, [])
+  end
+  def bh_button(opts, [do: block]) when is_list(opts) do
+    bh_context_extended_button(block, opts)
+  end
+  def bh_button(text, opts) when is_list(opts) do
     bh_context_extended_button(text, opts)
   end
 
@@ -87,9 +93,7 @@ defmodule Bh.Bh4.Button do
       |> put_button_extra_class(opts)
       |> put_button_data(opts)
 
-    content_tag(:button, final_opts) do
-      text
-    end
+    content_tag(:button, text, final_opts)
   end
 
   defp put_button_type(final_opts) do
