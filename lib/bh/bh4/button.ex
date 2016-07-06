@@ -72,7 +72,7 @@ defmodule Bh.Bh4.Button do
     bh_context_extended_button(text, opts, :outline)
   end
 
-  defp bh_context_extended_button(text, opts \\ [], type \\ "") do
+  defp bh_context_extended_button(text, opts, type \\ "") do
     opts =
       opts
       |> Enum.filter(fn {x, _} -> x in @allowed_opts end)
