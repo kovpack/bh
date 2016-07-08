@@ -19,4 +19,12 @@ defmodule Bh.Service do
       final_opts
     end
   end
+
+  def append_extra_css_class(final_opts, opts) do
+    if Keyword.has_key? opts, :class do
+      Keyword.put(final_opts, :class, "#{final_opts[:class]} #{opts[:class]}")
+    else
+      final_opts
+    end
+  end
 end

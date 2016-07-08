@@ -59,7 +59,7 @@ defmodule Bh.Bh4.Alert do
       |> Keyword.put(:role, "alert")
       |> Bh.Service.put_id_if_present(opts)
       |> put_alert_context(opts)
-      |> put_alert_extra_class(opts)
+      |> Bh.Service.append_extra_css_class(opts)
 
     content_tag(:div, text, final_opts)
   end
@@ -69,14 +69,6 @@ defmodule Bh.Bh4.Alert do
       Keyword.put(final_opts, :class, "alert alert-#{opts[:context]}")
     else
       Keyword.put(final_opts, :class, "alert alert-#{@default}")
-    end
-  end
-
-  defp put_alert_extra_class(final_opts, opts) do
-    if Keyword.has_key? opts, :class do
-      Keyword.put(final_opts, :class, "#{final_opts[:class]} #{opts[:class]}")
-    else
-      final_opts
     end
   end
 end
