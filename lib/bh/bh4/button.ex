@@ -60,13 +60,9 @@ defmodule Bh.Bh4.Button do
   """
   def bh_button(text, opts \\ [])
   def bh_button(opts, [do: block]) when is_list(opts) do
-    block =
-      case block do
-        {:safe, ["" | content]} -> {:safe, ["" | String.trim(content)]}
-        _                       -> block
-      end
-
-    bh_context_extended_button(block, opts)
+    block
+    |> Bh.Service.trim_safe_text
+    |> bh_context_extended_button(opts)
   end
   def bh_button(text, opts) when is_list(opts) do
     bh_context_extended_button(text, opts)
@@ -91,22 +87,16 @@ defmodule Bh.Bh4.Button do
   """
   def bh_button_outline(text, opts \\ [])
   def bh_button_outline(opts, [do: block]) when is_list(opts) do
-    block =
-      case block do
-        {:safe, ["" | content]} -> {:safe, ["" | String.trim(content)]}
-        _                       -> block
-      end
-
-    bh_context_extended_button(block, opts, :outline)
+    block
+    |> Bh.Service.trim_safe_text
+    |> bh_context_extended_button(opts, :outline)
   end
   def bh_button_outline(text, opts) when is_list(opts) do
     bh_context_extended_button(text, opts, :outline)
   end
 
   defp bh_context_extended_button(text, opts, type \\ "") do
-    opts =
-      opts
-      |> Enum.filter(fn {x, _} -> x in @allowed_opts end)
+    opts = Bh.Service.leave_allowed(opts, @allowed_opts)
 
     final_opts =
       []

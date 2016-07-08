@@ -43,22 +43,16 @@ defmodule Bh.Bh4.Alert do
   """
   def bh_alert(text, opts \\ [])
   def bh_alert(opts, [do: block]) when is_list(opts) do
-    block =
-      case block do
-        {:safe, ["" | content]} -> {:safe, ["" | String.trim(content)]}
-        _                       -> block
-      end
-
-    bh_context_extended_alert(block, opts)
+    block
+    |> Bh.Service.trim_safe_text
+    |> bh_context_extended_alert(opts)
   end
   def bh_alert(text, opts) when is_list(opts) do
     bh_context_extended_alert(text, opts)
   end
 
   defp bh_context_extended_alert(text, opts) do
-    opts =
-      opts
-      |> Enum.filter(fn {x, _} -> x in @allowed_opts end)
+    opts = Bh.Service.leave_allowed(opts, @allowed_opts)
 
     final_opts =
       []
