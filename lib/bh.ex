@@ -44,6 +44,7 @@ defmodule Bh do
     quote do
       import Bh.Bh4.Label
       import Bh.Bh4.Button
+      import Bh.Bh4.Alert
     end
   end
 end

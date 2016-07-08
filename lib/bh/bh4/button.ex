@@ -29,7 +29,7 @@ defmodule Bh.Bh4.Button do
     default `:layout` value is not set (renders standard button layout).
 
     * `:class` - extra class, appended to the button classes. Option `:class`
-    can take string of space-separated class names.
+    can take string of space-separated class names or symbol.
 
     * `:data` - data attributes list.
 
