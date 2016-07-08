@@ -100,19 +100,15 @@ defmodule Bh.Bh4.Button do
 
     final_opts =
       []
-      |> put_button_type
+      |> Keyword.put(:type, :button)
       |> put_button_context(opts, type)
-      |> put_button_id(opts)
+      |> Bh.Service.put_id_if_present(opts)
       |> put_button_size(opts)
       |> put_button_layout(opts)
       |> put_button_extra_class(opts)
       |> put_button_data(opts)
 
     content_tag(:button, text, final_opts)
-  end
-
-  defp put_button_type(final_opts) do
-    Keyword.put final_opts, :type, :button
   end
 
   defp put_button_context(final_opts, opts, type) do
@@ -125,14 +121,6 @@ defmodule Bh.Bh4.Button do
       Keyword.put(final_opts, :class, "btn btn-#{opts[:context]}#{type_class}")
     else
       Keyword.put(final_opts, :class, "btn btn-#{@default}#{type_class}")
-    end
-  end
-
-  defp put_button_id(final_opts, opts) do
-    if Keyword.has_key? opts, :id do
-      Keyword.put(final_opts, :id, "#{opts[:id]}")
-    else
-      final_opts
     end
   end
 

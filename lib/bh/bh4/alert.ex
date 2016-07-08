@@ -56,24 +56,12 @@ defmodule Bh.Bh4.Alert do
 
     final_opts =
       []
-      |> put_alert_role
-      |> put_alert_id(opts)
+      |> Keyword.put(:role, "alert")
+      |> Bh.Service.put_id_if_present(opts)
       |> put_alert_context(opts)
       |> put_alert_extra_class(opts)
 
     content_tag(:div, text, final_opts)
-  end
-
-  defp put_alert_role(final_opts) do
-    Keyword.put(final_opts, :role, "alert")
-  end
-
-  defp put_alert_id(final_opts, opts) do
-    if Keyword.has_key? opts, :id do
-      Keyword.put(final_opts, :id, "#{opts[:id]}")
-    else
-      final_opts
-    end
   end
 
   defp put_alert_context(final_opts, opts) do
