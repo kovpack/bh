@@ -52,7 +52,7 @@ defmodule Bh.Bh4.Alert do
   end
 
   defp bh_context_extended_alert(text, opts) do
-    opts = Bh.Service.leave_allowed(opts, @allowed_opts)
+    opts = Bh.Service.leave_allowed_opts(opts, @allowed_opts)
 
     final_opts =
       []

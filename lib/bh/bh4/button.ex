@@ -96,7 +96,7 @@ defmodule Bh.Bh4.Button do
   end
 
   defp bh_context_extended_button(text, opts, type \\ "") do
-    opts = Bh.Service.leave_allowed(opts, @allowed_opts)
+    opts = Bh.Service.leave_allowed_opts(opts, @allowed_opts)
 
     final_opts =
       []

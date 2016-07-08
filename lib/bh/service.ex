@@ -8,7 +8,7 @@ defmodule Bh.Service do
     end
   end
 
-  def leave_allowed(opts, allowed_opts) do
+  def leave_allowed_opts(opts, allowed_opts) do
     Enum.filter opts, fn {x, _} -> x in allowed_opts end
   end
 end
