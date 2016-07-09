@@ -60,7 +60,7 @@ defmodule Bh.Bh4.Alert do
         </button>
         <span><b>Dismissible alert</b> is <u>very important</u></span>
       </div>
-  """
+  """ 
   def bh_alert(text, opts \\ [])
   def bh_alert(opts, [do: block]) when is_list(opts) do
     block
