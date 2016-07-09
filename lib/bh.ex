@@ -45,6 +45,7 @@ defmodule Bh do
       import Bh.Bh4.Label
       import Bh.Bh4.Button
       import Bh.Bh4.Alert
+      import Bh.Bh4.Modal
     end
   end
 end
