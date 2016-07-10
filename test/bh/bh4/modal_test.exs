@@ -34,6 +34,37 @@ defmodule Bh.Bh4.ModalTest do
     assert rendered == expected
   end
 
+  test "renders header and content when content and title provided" do
+    expected =
+      ~s(<div aria-hidden="true" )                                           <>
+        ~s(aria-labelledby="myModalLabel" )                                  <>
+        ~s(class="modal fade in" )                                           <>
+        ~s(id="myModal" )                                                    <>
+        ~s(role="dialog" )                                                   <>
+        ~s(tabindex="-1">)                                                   <>
+        ~s(<div class="modal-dialog" role="document">)                       <>
+          ~s(<div class="modal-content">)                                    <>
+            ~s(<div class="modal-header">)                                   <>
+              ~s(<button aria-label="Close" class="close" )                  <>
+                ~s(data-dismiss="modal" type="button">)                      <>
+                ~s(<span aria-hidden="true">&times;</span>)                  <>
+              ~s(</button>)                                                  <>
+              ~s(<h4 class="modal-title" id="myModalLabel">Modal title</h4>) <>
+            ~s(</div>)                                                       <>
+            ~s(<div class="modal-body">)                                     <>
+              ~s(<p>Modal content</p>)                                       <>
+            ~s(</div>)                                                       <>
+          ~s(</div>)                                                         <>
+        ~s(</div>)                                                           <>
+      ~s(</div>)
+
+    rendered =
+      bh_modal("Modal content", title: "Modal title")
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
+
   test "renders properly if only text and id provided" do
     id                  = "myCustomId"
     rendered_aria_label = ~s(aria-labelledby="#{id}Label")

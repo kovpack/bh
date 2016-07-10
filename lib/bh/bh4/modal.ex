@@ -9,7 +9,7 @@ defmodule Bh.Bh4.Modal do
 
   @default_id "myModal"
 
-  @allowed_opts [:id, :size]
+  @allowed_opts [:id, :size, :title]
 
   @doc """
   Generates HTML markup for dialogs.
@@ -23,6 +23,10 @@ defmodule Bh.Bh4.Modal do
 
     * `:size` - size of the modal dialog. Supported sizes: `:small`, `:large`.
     When size is not provided, dialog is rendered in standard size.
+
+    * `:title` - title of the modal dialog. When provided, dialog will render
+    title block with close icon. When `:title` option provided, footer block
+    with close button will not be rendered by default.
 
   ## Examples
 
@@ -41,6 +45,12 @@ defmodule Bh.Bh4.Modal do
   If you want to make dialog smaller or larger - you can pass `:size` option.
 
       <%= bh_dialog "Dialog content", id: "myCustomId", size: :large %>
+
+  This will render title block with close button and provided title, and given
+  content. Footer with "Close" button as a redundant element will not be
+  rendered.
+
+      <%= bh_dialog "Dialog content", title: "Dialog title" %>
   """
   def bh_modal(content) when is_binary(content) do
     bh_modal_builder([content: content])
@@ -67,9 +77,9 @@ defmodule Bh.Bh4.Modal do
       content_tag(:div, class: "modal-dialog#{size_class(opts)}", role: "document") do
         content_tag(:div, class: "modal-content") do
           [
-            # build_modal_header(final_opts),
+            build_modal_header(final_opts, opts),
             build_modal_body(opts[:content]),
-            build_modal_footer
+            build_modal_footer(final_opts, opts)
           ]
         end
       end
@@ -101,12 +111,16 @@ defmodule Bh.Bh4.Modal do
     end
   end
 
-  defp build_modal_header(final_opts) do
-    content_tag(:div, class: "modal-header") do
-      [
-        build_close_icon,
-        content_tag(:h4, "Modal title", id: "#{final_opts[:id]}Label", class: "modal-title")
-      ]
+  defp build_modal_header(final_opts, opts) do
+    if Keyword.has_key? opts, :title do
+      content_tag(:div, class: "modal-header") do
+        [
+          build_close_icon,
+          content_tag(:h4, opts[:title], id: "#{final_opts[:id]}Label", class: "modal-title")
+        ]
+      end
+    else
+      ""
     end
   end
 
@@ -116,9 +130,13 @@ defmodule Bh.Bh4.Modal do
     end
   end
 
-  defp build_modal_footer do
-    content_tag(:div, class: "modal-footer") do
-      bh_button("Close", context: :secondary, data: [dismiss: "modal"])
+  defp build_modal_footer(final_opts, opts) do
+    if !(Keyword.has_key? opts, :title) do
+      content_tag(:div, class: "modal-footer") do
+        bh_button("Close", context: :secondary, data: [dismiss: "modal"])
+      end
+    else
+      ""
     end
   end
 
