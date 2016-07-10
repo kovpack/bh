@@ -11,6 +11,24 @@ defmodule Bh.Bh4.Modal do
 
   @allowed_opts [:id]
 
+  @doc """
+  Generates HTML markup for dialogs.
+
+  ## Options
+
+    * `:id` - id of the dialog. Default id is "myDialog". In case of rendering
+    multiple dialogs on the same page, be sure to pass different ids for each
+    of them (or only the first one will be displayed when used). Keep in mind,
+    that valid page should not have two same ids.
+
+  ## Examples
+
+  This snippet will generate dialog HTML markup with content block with provided
+  text and footer block with "Close" button. This dialog will have default id -
+  "#{@default_id}".
+
+      <%= bh_dialog "Dialog content" %>
+  """
   def bh_modal(content) when is_binary(content) do
     bh_modal_builder([content: content])
   end
