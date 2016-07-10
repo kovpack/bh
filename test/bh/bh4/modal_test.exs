@@ -46,4 +46,18 @@ defmodule Bh.Bh4.ModalTest do
     assert rendered =~ rendered_aria_label
     assert rendered =~ rendered_id
   end
+
+  test "renders proper size of the modal" do
+    sizes = [small: "sm", large: "lg"]
+
+    for {key, val} <- sizes do
+      expected = ~s(<div class="modal-dialog modal-#{val}" role="document">)
+
+      rendered =
+        bh_modal("Modal", size: key)
+        |> Phoenix.HTML.safe_to_string
+
+      assert rendered =~ expected
+    end
+  end
 end

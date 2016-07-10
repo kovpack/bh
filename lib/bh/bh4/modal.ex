@@ -9,7 +9,7 @@ defmodule Bh.Bh4.Modal do
 
   @default_id "myModal"
 
-  @allowed_opts [:id]
+  @allowed_opts [:id, :size]
 
   @doc """
   Generates HTML markup for dialogs.
@@ -20,6 +20,9 @@ defmodule Bh.Bh4.Modal do
     multiple dialogs on the same page, be sure to pass different ids for each
     of them (or only the first one will be displayed when used). Keep in mind,
     that valid page should not have two same ids.
+
+    * `:size` - size of the modal dialog. Supported sizes: `:small`, `:large`.
+    When size is not provided, dialog is rendered in standard size.
 
   ## Examples
 
@@ -33,6 +36,11 @@ defmodule Bh.Bh4.Modal do
   one page), you have to pass an `:id` option.
 
       <%= bh_dialog "Dialog content", id: "myCustomId" %>
+
+
+  If you want to make dialog smaller or larger - you can pass `:size` option.
+
+      <%= bh_dialog "Dialog content", id: "myCustomId", size: :large %>
   """
   def bh_modal(content) when is_binary(content) do
     bh_modal_builder([content: content])
@@ -56,7 +64,7 @@ defmodule Bh.Bh4.Modal do
       |> put_proper_id_and_aria_labelled_by(opts)
 
     content_tag(:div, final_opts) do
-      content_tag(:div, class: "modal-dialog", role: "document") do
+      content_tag(:div, class: "modal-dialog#{size_class(opts)}", role: "document") do
         content_tag(:div, class: "modal-content") do
           [
             # build_modal_header(final_opts),
@@ -65,6 +73,17 @@ defmodule Bh.Bh4.Modal do
           ]
         end
       end
+    end
+  end
+
+  defp size_class(opts) do
+    if Keyword.has_key? opts, :size do
+      case opts[:size] do
+        :large -> " modal-lg"
+        :small -> " modal-sm"
+      end
+    else
+      ""
     end
   end
 
