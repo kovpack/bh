@@ -11,8 +11,15 @@ defmodule Bh.Bh4.Modal do
 
   @allowed_opts [:id]
 
-  def bh_modal, do: bh_modal([])
-  def bh_modal(opts) when is_list(opts) do
+  def bh_modal(content) when is_binary(content) do
+    bh_modal_builder([content: content])
+  end
+  def bh_modal(content, opts) when is_binary(content) and is_list(opts) do
+    opts = Keyword.put(opts, :content, content)
+    bh_modal_builder(opts)
+  end
+
+  defp bh_modal_builder(opts) when is_list(opts) do
     final_opts = [
       class:             "modal fade in",
       role:              "dialog",
@@ -22,22 +29,33 @@ defmodule Bh.Bh4.Modal do
     ]
 
     final_opts =
-      if Keyword.has_key? opts, :id do
-        Keyword.put(final_opts, :id, opts[:id])
-      else
-        Keyword.put(final_opts, :id, @default_id)
-      end
+      final_opts
+      |> put_proper_id_and_aria_labelled_by(opts)
 
     content_tag(:div, final_opts) do
       content_tag(:div, class: "modal-dialog", role: "document") do
         content_tag(:div, class: "modal-content") do
           [
-            build_modal_header(final_opts),
-            build_modal_body,
+            # build_modal_header(final_opts),
+            build_modal_body(opts[:content]),
             build_modal_footer
           ]
         end
       end
+    end
+  end
+
+  defp put_proper_id_and_aria_labelled_by(final_opts, opts) do
+    if Keyword.has_key? opts, :id do
+      final_opts =
+        final_opts
+        |> Keyword.put(:id, opts[:id])
+        |> Keyword.put(:"aria-labelledby", "#{opts[:id]}Label")
+    else
+      final_opts =
+        final_opts
+        |> Keyword.put(:id, @default_id)
+        |> Keyword.put(:"aria-labelledby", "#{@default_id}Label")
     end
   end
 
@@ -50,9 +68,9 @@ defmodule Bh.Bh4.Modal do
     end
   end
 
-  defp build_modal_body do
+  defp build_modal_body(content) do
     content_tag(:div, class: "modal-body") do
-      content_tag(:p, "One fine body here")
+      content_tag(:p, content)
     end
   end
 
