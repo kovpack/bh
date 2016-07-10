@@ -28,6 +28,11 @@ defmodule Bh.Bh4.Modal do
   "#{@default_id}".
 
       <%= bh_dialog "Dialog content" %>
+
+  In order to give dialog a specific id (in case you have multiple dialogs on
+  one page), you have to pass an `:id` option.
+
+      <%= bh_dialog "Dialog content", id: "myCustomId" %>
   """
   def bh_modal(content) when is_binary(content) do
     bh_modal_builder([content: content])
