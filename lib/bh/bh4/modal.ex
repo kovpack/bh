@@ -46,9 +46,9 @@ defmodule Bh.Bh4.Modal do
 
       <%= bh_dialog "Dialog content", id: "myCustomId", size: :large %>
 
-  This will render title block with close button and provided title, and given
-  content. Footer with "Close" button as a redundant element will not be
-  rendered.
+  This will render the title block with the close icon, provided title and given
+  content. Footer with the "Close" button as a redundant element will not be
+  rendered by default when `:title` is provided.
 
       <%= bh_dialog "Dialog content", title: "Dialog title" %>
   """
