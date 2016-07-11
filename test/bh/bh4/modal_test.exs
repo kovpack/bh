@@ -83,8 +83,7 @@ defmodule Bh.Bh4.ModalTest do
               ~s(<h4 class="modal-title" id="myModalLabel">Modal title</h4>) <>
             ~s(</div>)                                                       <>
             ~s(<div class="modal-body">)                                     <>
-              ~s(<p>Some conteng goes here :\) <b>Bold</b> )                 <>
-                 ~s(and <i>italic</i> text.)                                 <>
+              ~s(<p>Some content. <b>Bold</b> and <i>italic</i> text.)       <>
                ~s(</p>)                                                      <>
             ~s(</div>)                                                       <>
           ~s(</div>)                                                         <>
@@ -93,10 +92,7 @@ defmodule Bh.Bh4.ModalTest do
 
     rendered =
       bh_modal(title: "Modal title", size: :small) do
-        content =
-          "<p>Some conteng goes here :) <b>Bold</b> and <i>italic</i> text.</p>"
-
-        {:safe, [content]}
+        {:safe, ["<p>Some content. <b>Bold</b> and <i>italic</i> text.</p>"]}
       end
       |> Phoenix.HTML.safe_to_string
 

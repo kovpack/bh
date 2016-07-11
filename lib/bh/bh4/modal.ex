@@ -58,7 +58,7 @@ defmodule Bh.Bh4.Modal do
   string argument, but only the list of options.
 
       <%= bh_modal title: "Modal title", size: :small do %>
-        <p>Some conteng goes here :) <b>Bold</b> and <i>italic</i> text.</p>
+        <p>Some content. <b>Bold</b> and <i>italic</i> text.</p>
       <% end %>
   """
   def bh_modal(content) when is_binary(content) do
@@ -145,7 +145,7 @@ defmodule Bh.Bh4.Modal do
     end
   end
 
-  defp build_modal_footer(final_opts, opts) do
+  defp build_modal_footer(_final_opts, opts) do
     if !(Keyword.has_key? opts, :title) do
       content_tag(:div, class: "modal-footer") do
         bh_button("Close", context: :secondary, data: [dismiss: "modal"])
