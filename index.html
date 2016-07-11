@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="stylesheet" href="gh-pages/libs/bootstrap/v4.0.0-alpha.2/bootstrap.min.css">
-    <link rel="stylesheet" href="gh-pages/libs/highlight/styles/androidstudio.css">
+    <link rel="stylesheet" href="gh-pages/libs/highlight/styles/default.css">
     <link rel="stylesheet" href="gh-pages/css/main.css">
   </head>
   <body>
@@ -32,6 +32,109 @@
           <p class="lead">This package is designed to minimize repetitive code and the amount of HTML markup in your project's source code</p>
         </div>
       </div>
+    </div>
+    <div class="container">
+      <h1>Alerts</h1>
+
+      <h2>Dismissible alert with context</h2>
+
+      <p>Usage</p>
+  <pre><code>
+  &lt;%= bh_alert &quot;Alert text&quot;, dismissible: true %&gt;
+  </code></pre>
+
+      <p>Result</p>
+      <div>
+        <div class="alert alert-info alert-dismissible fade in" role="alert">
+          <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">×</span>
+          </button>
+          Alert text
+        </div>
+      </div>
+
+      <p>Markup</p>
+  <pre><code>
+  &lt;div class=&quot;alert alert-info alert-dismissible fade in&quot; role=&quot;alert&quot;&gt;
+    &lt;button aria-label=&quot;Close&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; type=&quot;button&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&times;&lt;/span&gt;
+    &lt;/button&gt;
+    Alert text
+  &lt;/div&gt;
+  </code></pre>
+
+      <hr/>
+
+      <h2>Alert with id, extra class and context</h2>
+
+      <p>Usage</p>
+  <pre><code>
+  &lt;%= bh_alert &quot;Alert text&quot;, id: :one, class: :extra, context: :danger %&gt;
+  </code></pre>
+
+      <p>Result</p>
+      <div>
+        <div class="alert alert-danger extra" id="one" role="alert">Alert text</div>
+      </div>
+
+      <p>Markup</p>
+  <pre><code>
+  &lt;div class=&quot;alert alert-danger extra&quot; id=&quot;one&quot; role=&quot;alert&quot;&gt;Alert text&lt;/div&gt;
+  </code></pre>
+
+      <hr/>
+
+      <h2>Alert with id, extra class and complex markup block</h2>
+
+      <p>Usage</p>
+  <pre><code>
+  &lt;%= bh_alert context: :success, id: :one, class: :extra do %&gt;
+    &lt;b&gt;Alert&lt;/b&gt; is &lt;u&gt;very important&lt;/u&gt;
+  &lt;% end %&gt;
+  </code></pre>
+
+      <p>Result</p>
+      <div>
+        <div class="alert alert-success extra" id="one" role="alert">
+          <b>Alert</b> is <u>very important</u>
+        </div>
+      </div>
+
+      <p>Markup</p>
+  <pre><code>
+  &lt;div class=&quot;alert alert-success extra&quot; id=&quot;one&quot; role=&quot;alert&quot;&gt;
+    &lt;b&gt;Alert&lt;/b&gt; is &lt;u&gt;very important&lt;/u&gt;
+  &lt;/div&gt;
+  </code></pre>
+
+      <hr/>
+
+      <h2>Dismissible alert with id, extra class and complex markup block</h2>
+
+      <p>Usage</p>
+  <pre><code>
+  &lt;%= bh_alert context: :success, id: :one, class: :extra, dismissible: true do %&gt;
+    &lt;b&gt;Dismissible alert&lt;/b&gt; is &lt;u&gt;very important&lt;/u&gt;
+  &lt;% end %&gt;
+  </code></pre>
+
+      <p>Result</p>
+      <div>
+        <div class="alert alert-success extra alert-dismissible fade in" id="one" role="alert">
+          <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">×</span>
+          </button>
+          <b>Dismissible alert</b> is <u>very important</u>
+        </div>
+      </div>
+
+      <p>Markup</p>
+  <pre><code>
+  &lt;div class=&quot;alert alert-success extra alert-dismissible fade in&quot; id=&quot;one&quot; role=&quot;alert&quot;&gt;
+    &lt;button aria-label=&quot;Close&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; type=&quot;button&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&times;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;b&gt;Dismissible alert&lt;/b&gt; is &lt;u&gt;very important&lt;/u&gt;
+  &lt;/div&gt;
+  </code></pre>
+
+      <hr/>
     </div>
 
     <script src="gh-pages/libs/jquery/2.1.4/jquery.min.js"></script>
