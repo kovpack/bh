@@ -51,11 +51,26 @@ defmodule Bh.Bh4.Modal do
   rendered by default when `:title` is provided.
 
       <%= bh_dialog "Dialog content", title: "Dialog title" %>
+
+  If you need complex HTML markup to be used to display coplex text inside
+  modal window, you can give `bh_dialog` function a block that will be taken
+  for content. Please, note that in such case you should not pass the first
+  string argument, but only the list of options.
+
+      <%= bh_modal title: "Modal title", size: :small do %>
+        <p>Some conteng goes here :) <b>Bold</b> and <i>italic</i> text.</p>
+      <% end %>
   """
   def bh_modal(content) when is_binary(content) do
+    content = content_tag(:p, content)
     bh_modal_builder([content: content])
   end
   def bh_modal(content, opts) when is_binary(content) and is_list(opts) do
+    content = content_tag(:p, content)
+    opts = Keyword.put(opts, :content, content)
+    bh_modal_builder(opts)
+  end
+  def bh_modal(opts, [do: content]) when is_list(opts) do
     opts = Keyword.put(opts, :content, content)
     bh_modal_builder(opts)
   end
@@ -126,7 +141,7 @@ defmodule Bh.Bh4.Modal do
 
   defp build_modal_body(content) do
     content_tag(:div, class: "modal-body") do
-      content_tag(:p, content)
+      content
     end
   end
 
