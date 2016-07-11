@@ -12,7 +12,23 @@ defmodule Bh.Bh4.Modal do
   @allowed_opts [:id, :size, :title]
 
   @doc """
-  Generates HTML markup for dialogs.
+  Generates basic HTML markup for dialogs.
+
+  ## Examples
+
+  This snippet will generate dialog HTML markup with content block with provided
+  text and footer block with "Close" button. This dialog will have default id -
+  "#{@default_id}".
+
+      <%= bh_dialog "Dialog content" %>
+  """
+  def bh_modal(content) when is_binary(content) do
+    content = content_tag(:p, content)
+    bh_modal_builder([content: content])
+  end
+
+  @doc """
+  Generates complex HTML markup for dialogs.
 
   ## Options
 
@@ -30,17 +46,10 @@ defmodule Bh.Bh4.Modal do
 
   ## Examples
 
-  This snippet will generate dialog HTML markup with content block with provided
-  text and footer block with "Close" button. This dialog will have default id -
-  "#{@default_id}".
-
-      <%= bh_dialog "Dialog content" %>
-
   In order to give dialog a specific id (in case you have multiple dialogs on
   one page), you have to pass an `:id` option.
 
       <%= bh_dialog "Dialog content", id: "myCustomId" %>
-
 
   If you want to make dialog smaller or larger - you can pass `:size` option.
 
@@ -61,10 +70,6 @@ defmodule Bh.Bh4.Modal do
         <p>Some content. <b>Bold</b> and <i>italic</i> text.</p>
       <% end %>
   """
-  def bh_modal(content) when is_binary(content) do
-    content = content_tag(:p, content)
-    bh_modal_builder([content: content])
-  end
   def bh_modal(content, opts) when is_binary(content) and is_list(opts) do
     content = content_tag(:p, content)
     opts = Keyword.put(opts, :content, content)
