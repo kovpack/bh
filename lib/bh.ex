@@ -5,7 +5,15 @@ defmodule Bh do
   This package is designed to minimize repetitive code and the amount of HTML
   markup in your project's source code.
 
-  ## Installation:
+  **NOTE**: Please, keep in mind, that Twitter Bootstrap source files are not
+  included into the package and should be installed separately.
+
+  # Live examples
+
+  Real live examples can be found on the site of the
+  [Project](https://kovpack.github.io/bh/).
+
+  # Installation:
 
   Add this package to the list of dependencies in your project's `mix.exs` file:
 
@@ -13,7 +21,7 @@ defmodule Bh do
         [{:bh, "~> #{Bh.Mixfile.version}"}]
       end
 
-  ## Usage
+  # Usage
 
   Use `use Bh` in your view file to import all helpers at once:
 
