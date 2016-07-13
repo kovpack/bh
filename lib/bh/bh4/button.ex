@@ -1,6 +1,11 @@
 defmodule Bh.Bh4.Button do
   @moduledoc """
   Twitter Bootstrap 4 button helpers for Phoenix.
+
+  ## Examples
+
+  Real live examples can be found on the site of the
+  [Project](https://kovpack.github.io/bh/).
   """
 
   use Phoenix.HTML
