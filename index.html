@@ -240,6 +240,71 @@
     </code></pre>
   </div>
 
+  <h2>Simple outline button</h2>
+
+  <pre><code>
+  &lt;%= bh_button_outline &quot;Button&quot; %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <button class="btn btn-primary-outline" type="button">Button</button>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;button class=&quot;btn btn-primary-outline&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    </code></pre>
+  </div>
+
+  <h2>Outline buttons with context</h2>
+
+  <pre><code>
+  &lt;%= bh_button_outline &quot;Button&quot;, context: :primary %&gt;
+  &lt;%= bh_button_outline &quot;Button&quot;, context: :secondary %&gt;
+  &lt;%= bh_button_outline &quot;Button&quot;, context: :success %&gt;
+  &lt;%= bh_button_outline &quot;Button&quot;, context: :info %&gt;
+  &lt;%= bh_button_outline &quot;Button&quot;, context: :warning %&gt;
+  &lt;%= bh_button_outline &quot;Button&quot;, context: :danger %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <button class="btn btn-primary-outline" type="button">Button</button>
+    <button class="btn btn-secondary-outline" type="button">Button</button>
+    <button class="btn btn-success-outline" type="button">Button</button>
+    <button class="btn btn-info-outline" type="button">Button</button>
+    <button class="btn btn-warning-outline" type="button">Button</button>
+    <button class="btn btn-danger-outline" type="button">Button</button>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;button class=&quot;btn btn-primary-outline&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;button class=&quot;btn btn-secondary-outline&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;button class=&quot;btn btn-success-outline&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;button class=&quot;btn btn-info-outline&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;button class=&quot;btn btn-warning-outline&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;button class=&quot;btn btn-danger-outline&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    </code></pre>
+  </div>
+
+  <h2>Outline buttons with different sizes</h2>
+
+  <pre><code>
+  &lt;%= bh_button_outline &quot;Button&quot;, size: :small %&gt;
+  &lt;%= bh_button_outline &quot;Button&quot; %&gt;
+  &lt;%= bh_button_outline &quot;Button&quot;, size: :large %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <button class="btn btn-primary-outline btn-sm" type="button">Button</button>
+    <button class="btn btn-primary-outline" type="button">Button</button>
+    <button class="btn btn-primary-outline btn-lg" type="button">Button</button>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;button class=&quot;btn btn-primary-outline btn-sm&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;button class=&quot;btn btn-primary-outline&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;button class=&quot;btn btn-primary-outline btn-lg&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    </code></pre>
+  </div>
 </div></div></div>
 
     <script src="gh-pages/libs/jquery/2.1.4/jquery.min.js"></script>
