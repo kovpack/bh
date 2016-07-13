@@ -121,6 +121,125 @@
     &lt;/div&gt;
     </code></pre>
   </div>
+
+  <h1>Buttons</h1>
+
+  <h2>Simple button</h2>
+
+  <pre><code>
+  &lt;%= bh_button &quot;Button&quot; %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <button class="btn btn-primary" type="button">Button</button>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    </code></pre>
+  </div>
+
+  <h2>Button with context</h2>
+
+  <pre><code>
+  &lt;%= bh_button &quot;Button&quot;, context: :primary %&gt;
+  &lt;%= bh_button &quot;Button&quot;, context: :secondary %&gt;
+  &lt;%= bh_button &quot;Button&quot;, context: :success %&gt;
+  &lt;%= bh_button &quot;Button&quot;, context: :info %&gt;
+  &lt;%= bh_button &quot;Button&quot;, context: :warning %&gt;
+  &lt;%= bh_button &quot;Button&quot;, context: :danger %&gt;
+  &lt;%= bh_button &quot;Button&quot;, context: :link %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <button class="btn btn-primary" type="button">Button</button>
+    <button class="btn btn-secondary" type="button">Button</button>
+    <button class="btn btn-success" type="button">Button</button>
+    <button class="btn btn-info" type="button">Button</button>
+    <button class="btn btn-warning" type="button">Button</button>
+    <button class="btn btn-danger" type="button">Button</button>
+    <button class="btn btn-link" type="button">Button</button>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;button class=&quot;btn btn-success&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;button class=&quot;btn btn-info&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;button class=&quot;btn btn-warning&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;button class=&quot;btn btn-danger&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;button class=&quot;btn btn-link&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    </code></pre>
+  </div>
+
+  <h2>Buttons with different sizes</h2>
+
+  <pre><code>
+  &lt;%= bh_button &quot;Button&quot;, size: :small %&gt;
+  &lt;%= bh_button &quot;Button&quot; %&gt;
+  &lt;%= bh_button &quot;Button&quot;, size: :large %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <button class="btn btn-primary btn-sm" type="button">Button</button>
+    <button class="btn btn-primary" type="button">Button</button>
+    <button class="btn btn-primary btn-lg" type="button">Button</button>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;button class=&quot;btn btn-primary btn-sm&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    &lt;button class=&quot;btn btn-primary btn-lg&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    </code></pre>
+  </div>
+
+  <h2>Buttons with different layout</h2>
+
+  <pre><code>
+  &lt;%= bh_button &quot;Button&quot;, size: :large, layout: :block %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <button class="btn btn-primary btn-lg btn-block" type="button">Button</button>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;button class=&quot;btn btn-primary btn-lg btn-block&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    </code></pre>
+  </div>
+
+  <h2>Buttons with multiple options</h2>
+
+  <pre><code>
+  &lt;%= bh_button &quot;Button&quot;, id: &quot;my_id&quot;, size: :large, context: :warning, class: &quot;extra classes&quot;, data: [val: &quot;value&quot;, other_val: &quot;other_value&quot;] %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <button class="btn btn-warning btn-lg extra classes" data-other-val="other_value" data-val="value" id="my_id" type="button">Button</button>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;button class=&quot;btn btn-warning btn-lg extra classes&quot; data-other-val=&quot;other_value&quot; data-val=&quot;value&quot; id=&quot;my_id&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+    </code></pre>
+  </div>
+
+  <h2>Buttons with complex markup</h2>
+
+  <pre><code>
+  &lt;%= bh_button context: :success do %&gt;
+    &lt;span&gt;&lt;b&gt;Bold&lt;/b&gt; and &lt;i&gt;italics&lt;/i&gt; in button text&lt;/span&gt;
+  &lt;% end %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <button class="btn btn-success" type="button"><span><b>Bold</b> and <i>italics</i> in button text</span></button>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;button class=&quot;btn btn-success&quot; type=&quot;button&quot;&gt;&lt;span&gt;&lt;b&gt;Bold&lt;/b&gt; and &lt;i&gt;italics&lt;/i&gt; in button text&lt;/span&gt;&lt;/button&gt;
+    </code></pre>
+  </div>
+
 </div></div></div>
 
     <script src="gh-pages/libs/jquery/2.1.4/jquery.min.js"></script>
