@@ -42,7 +42,10 @@ defmodule Bh.Mixfile do
       files: ["lib", "mix.exs", "README.md"],
       maintainers: ["Anatoliy Yevpack"],
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/kovpack/bh"}
+      links: %{
+        "GitHub" => "https://github.com/kovpack/bh",
+        "Live examples" => "https://kovpack.github.io/bh/"
+      }
     ]
   end
 end
