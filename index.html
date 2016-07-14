@@ -305,6 +305,99 @@
     &lt;button class=&quot;btn btn-primary-outline btn-lg&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
     </code></pre>
   </div>
+
+  <h1>Labels</h1>
+
+  <h2>Default label</h2>
+
+  <pre><code>
+  &lt;%= bh_label &quot;Label&quot; %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <span class="label label-default">Label</span>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;span class=&quot;label label-default&quot;&gt;Label&lt;/span&gt;
+    </code></pre>
+  </div>
+
+  <h2>Labels with different contexts</h2>
+
+  <pre><code>
+  &lt;%= bh_label &quot;Label&quot;, context: :default %&gt;
+  &lt;%= bh_label &quot;Label&quot;, context: :primary %&gt;
+  &lt;%= bh_label &quot;Label&quot;, context: :success %&gt;
+  &lt;%= bh_label &quot;Label&quot;, context: :info %&gt;
+  &lt;%= bh_label &quot;Label&quot;, context: :warning %&gt;
+  &lt;%= bh_label &quot;Label&quot;, context: :danger %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <span class="label label-default">Label</span>
+    <span class="label label-primary">Label</span>
+    <span class="label label-success">Label</span>
+    <span class="label label-info">Label</span>
+    <span class="label label-warning">Label</span>
+    <span class="label label-danger">Label</span>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;span class=&quot;label label-default&quot;&gt;Label&lt;/span&gt;
+    &lt;span class=&quot;label label-primary&quot;&gt;Label&lt;/span&gt;
+    &lt;span class=&quot;label label-success&quot;&gt;Label&lt;/span&gt;
+    &lt;span class=&quot;label label-info&quot;&gt;Label&lt;/span&gt;
+    &lt;span class=&quot;label label-warning&quot;&gt;Label&lt;/span&gt;
+    &lt;span class=&quot;label label-danger&quot;&gt;Label&lt;/span&gt;
+    </code></pre>
+  </div>
+
+  <h2>Default label pill</h2>
+
+  <pre><code>
+  &lt;%= bh_label_pill &quot;Label&quot; %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <span class="label label-pill label-default">Label</span>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;span class=&quot;label label-pill label-default&quot;&gt;Label&lt;/span&gt;
+    </code></pre>
+  </div>
+
+  <h2>Label pills with different contexts</h2>
+
+  <pre><code>
+  &lt;%= bh_label_pill &quot;Label&quot;, context: :default %&gt;
+  &lt;%= bh_label_pill &quot;Label&quot;, context: :primary %&gt;
+  &lt;%= bh_label_pill &quot;Label&quot;, context: :success %&gt;
+  &lt;%= bh_label_pill &quot;Label&quot;, context: :info %&gt;
+  &lt;%= bh_label_pill &quot;Label&quot;, context: :warning %&gt;
+  &lt;%= bh_label_pill &quot;Label&quot;, context: :danger %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <span class="label label-pill label-default">Label</span>
+    <span class="label label-pill label-primary">Label</span>
+    <span class="label label-pill label-success">Label</span>
+    <span class="label label-pill label-info">Label</span>
+    <span class="label label-pill label-warning">Label</span>
+    <span class="label label-pill label-danger">Label</span>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;span class=&quot;label label-pill label-default&quot;&gt;Label&lt;/span&gt;
+    &lt;span class=&quot;label label-pill label-primary&quot;&gt;Label&lt;/span&gt;
+    &lt;span class=&quot;label label-pill label-success&quot;&gt;Label&lt;/span&gt;
+    &lt;span class=&quot;label label-pill label-info&quot;&gt;Label&lt;/span&gt;
+    &lt;span class=&quot;label label-pill label-warning&quot;&gt;Label&lt;/span&gt;
+    &lt;span class=&quot;label label-pill label-danger&quot;&gt;Label&lt;/span&gt;
+    </code></pre>
+  </div>
+
 </div></div></div>
 
     <script src="gh-pages/libs/jquery/2.1.4/jquery.min.js"></script>
