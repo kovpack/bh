@@ -1,3 +1,24 @@
+ul.contents-list {
+  list-style-type: none;
+  padding-left: 0px;
+}
+ul.contents-list > li > a {
+  font-weight: bold;
+  color: #373a3c;
+}
+ul.contents-list ul {
+  padding-left: 20px;
+  list-style-type: square;
+}
+ul.contents-list ul li {
+  color: rgba(0, 0, 0, .5);
+}
+ul.contents-list ul li a {
+  color: rgba(0, 0, 0, .3);
+}
+ul.contents-list ul li a:hover {
+  color: rgba(0, 0, 0, .6);
+}
 .main-banner {
   padding: 0px;
   margin-top: 60px;

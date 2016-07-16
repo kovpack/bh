@@ -36,9 +36,9 @@
 
 <div class="container"><div class="row"><div class="col-sm-9">
 
-  <h1>Alerts</h1>
+  <h1 id="h1_alert">Alerts</h1>
 
-  <h2>Dismissible alert with context</h2>
+  <h2 id="h2_alert_1">Dismissible alert with context</h2>
 
   <pre><code>
   &lt;%= bh_alert &quot;Alert text&quot;, dismissible: true %&gt;
@@ -61,7 +61,7 @@
     </code></pre>
   </div>
 
-  <h2>Alert with id, extra class and context</h2>
+  <h2 id="h2_alert_2">Alert with id, extra class and context</h2>
 
   <pre><code>
   &lt;%= bh_alert &quot;Alert text&quot;, id: :one, class: :extra, context: :danger %&gt;
@@ -76,7 +76,7 @@
     </code></pre>
   </div>
 
-  <h2>Alert with id, extra class and complex markup block</h2>
+  <h2 id="h2_alert_3">Alert with id, extra class and complex markup block</h2>
 
   <pre><code>
   &lt;%= bh_alert context: :success, id: :one, class: :extra do %&gt;
@@ -97,7 +97,7 @@
     </code></pre>
   </div>
 
-  <h2>Dismissible alert with id, extra class and complex markup block</h2>
+  <h2 id="h2_alert_4">Dismissible alert with id, extra class and complex markup block</h2>
 
   <pre><code>
   &lt;%= bh_alert context: :warning, id: :one, class: :extra, dismissible: true do %&gt;
@@ -122,9 +122,9 @@
     </code></pre>
   </div>
 
-  <h1>Buttons</h1>
+  <h1 id="h1_button">Buttons</h1>
 
-  <h2>Simple button</h2>
+  <h2 id="h2_button_1">Simple button</h2>
 
   <pre><code>
   &lt;%= bh_button &quot;Button&quot; %&gt;
@@ -139,7 +139,7 @@
     </code></pre>
   </div>
 
-  <h2>Button with context</h2>
+  <h2 id="h2_button_2">Button with context</h2>
 
   <pre><code>
   &lt;%= bh_button &quot;Button&quot;, context: :primary %&gt;
@@ -172,7 +172,7 @@
     </code></pre>
   </div>
 
-  <h2>Buttons with different sizes</h2>
+  <h2 id="h2_button_3">Buttons with different sizes</h2>
 
   <pre><code>
   &lt;%= bh_button &quot;Button&quot;, size: :small %&gt;
@@ -193,7 +193,7 @@
     </code></pre>
   </div>
 
-  <h2>Buttons with different layout</h2>
+  <h2 id="h2_button_4">Buttons with different layout</h2>
 
   <pre><code>
   &lt;%= bh_button &quot;Button&quot;, size: :large, layout: :block %&gt;
@@ -208,7 +208,7 @@
     </code></pre>
   </div>
 
-  <h2>Buttons with multiple options</h2>
+  <h2 id="h2_button_5">Buttons with multiple options</h2>
 
   <pre><code>
   &lt;%= bh_button &quot;Button&quot;, id: &quot;my_id&quot;, size: :large, context: :warning, class: &quot;extra classes&quot;, data: [val: &quot;value&quot;, other_val: &quot;other_value&quot;] %&gt;
@@ -223,7 +223,7 @@
     </code></pre>
   </div>
 
-  <h2>Buttons with complex markup</h2>
+  <h2 id="h2_button_6">Buttons with complex markup</h2>
 
   <pre><code>
   &lt;%= bh_button context: :success do %&gt;
@@ -240,7 +240,7 @@
     </code></pre>
   </div>
 
-  <h2>Simple outline button</h2>
+  <h2 id="h2_button_7">Simple outline button</h2>
 
   <pre><code>
   &lt;%= bh_button_outline &quot;Button&quot; %&gt;
@@ -255,7 +255,7 @@
     </code></pre>
   </div>
 
-  <h2>Outline buttons with context</h2>
+  <h2 id="h2_button_8">Outline buttons with context</h2>
 
   <pre><code>
   &lt;%= bh_button_outline &quot;Button&quot;, context: :primary %&gt;
@@ -285,7 +285,7 @@
     </code></pre>
   </div>
 
-  <h2>Outline buttons with different sizes</h2>
+  <h2 id="h2_button_9">Outline buttons with different sizes</h2>
 
   <pre><code>
   &lt;%= bh_button_outline &quot;Button&quot;, size: :small %&gt;
@@ -306,9 +306,9 @@
     </code></pre>
   </div>
 
-  <h1>Labels</h1>
+  <h1 id="h1_label">Labels</h1>
 
-  <h2>Default label</h2>
+  <h2 id="h2_label_1">Default label</h2>
 
   <pre><code>
   &lt;%= bh_label &quot;Label&quot; %&gt;
@@ -323,7 +323,7 @@
     </code></pre>
   </div>
 
-  <h2>Labels with different contexts</h2>
+  <h2 id="h2_label_2">Labels with different contexts</h2>
 
   <pre><code>
   &lt;%= bh_label &quot;Label&quot;, context: :default %&gt;
@@ -353,7 +353,7 @@
     </code></pre>
   </div>
 
-  <h2>Default label pill</h2>
+  <h2 id="h2_label_3">Default label pill</h2>
 
   <pre><code>
   &lt;%= bh_label_pill &quot;Label&quot; %&gt;
@@ -368,7 +368,7 @@
     </code></pre>
   </div>
 
-  <h2>Label pills with different contexts</h2>
+  <h2 id="h2_label_4">Label pills with different contexts</h2>
 
   <pre><code>
   &lt;%= bh_label_pill &quot;Label&quot;, context: :default %&gt;
@@ -397,8 +397,46 @@
     &lt;span class=&quot;label label-pill label-danger&quot;&gt;Label&lt;/span&gt;
     </code></pre>
   </div>
+</div>
 
-</div></div></div>
+<div class="col-sm-3">
+  <ul class="contents-list">
+    <li>
+      <a href="#h1_alert">Alerts</a>
+      <ul>
+        <li><a href="#h2_alert_1">Dismissible alert with context</a></li>
+        <li><a href="#h2_alert_2">Alert with id, extra class and context</a></li>
+        <li><a href="#h2_alert_3">Alert with id, extra class and complex markup block</a></li>
+        <li><a href="#h2_alert_4">Dismissible alert with id, extra class and complex markup block</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#h1_button">Buttons</a>
+      <ul>
+        <li><a href="#h2_button_1">Simple button</a></li>
+        <li><a href="#h2_button_2">Button with context</a></li>
+        <li><a href="#h2_button_3">Buttons with different sizes</a></li>
+        <li><a href="#h2_button_4">Buttons with different layout</a></li>
+        <li><a href="#h2_button_5">Buttons with multiple options</a></li>
+        <li><a href="#h2_button_6">Buttons with complex markup</a></li>
+        <li><a href="#h2_button_7">Simple outline button</a></li>
+        <li><a href="#h2_button_8">Outline buttons with context</a></li>
+        <li><a href="#h2_button_9">Outline buttons with different sizes</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#h2_label">Labels</a>
+      <ul>
+        <li><a href="#h2_label_1">Default label</a></li>
+        <li><a href="#h2_label_2">Labels with different contexts</a></li>
+        <li><a href="#h2_label_3">Default label pill</a></li>
+        <li><a href="#h2_label_4">Label pills with different contexts</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+</div></div>
 
     <script src="gh-pages/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="gh-pages/libs/tether.min.js"></script>
