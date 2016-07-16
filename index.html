@@ -400,13 +400,24 @@
 
   <h1 id="h1_modal">Modals</h1>
 
-  <h2 id="h2_modal_1">With content and default footer</h2>
+  <p>
+    <b>Note:</b> helpers do not generate trigger buttons. Trigger buttons should
+    be added separately.
+  </p>
+
+  <h2 id="h2_modal_1">With simple content and default footer</h2>
+
+  <p>
+    <button class="btn btn-primary" data-target="#myModalEx1" data-toggle="modal" type="button">Launch modal</button>
+    <div aria-hidden="true" aria-labelledby="myModalEx1Label" class="modal fade" id="myModalEx1" role="dialog" tabindex="-1" style="display: none;"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-body"><p>Dialog content</p></div><div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button></div></div></div></div>
+  </p>
 
   <pre><code>
-  &lt;%= bh_modal &quot;Modal dialog content&quot; %&gt;
+  &lt;%= bh_modal &quot;Modal dialog content&quot; %&gt; # default id is &quot;myModal&quot;
+  &lt;%= bh_modal &quot;Modal dialog content&quot;, id: &quot;myModalEx1&quot; %&gt;
   </code></pre>
 
-  <div class="bs-example">
+  <div class="bs-example bs-example-modal">
     <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade in example-modal" id="myModal" role="dialog" tabindex="-1">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -479,7 +490,7 @@
     <li>
       <a href="#h1_modal">Modals</a>
       <ul>
-        <li><a href="#h2_modal_1">With content and default footer</a></li>
+        <li><a href="#h2_modal_1">With simple content and default footer</a></li>
       </ul>
     </li>
   </ul>

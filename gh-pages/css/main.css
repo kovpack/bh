@@ -50,6 +50,9 @@ ul.contents-list ul li a:hover {
   -moz-border-radius: 4px 0 4px 0;
   border-radius: 4px 0 4px 0;
 }
+  .bs-example.bs-example-modal {
+    background-color: #f5f5f5;
+  }
 .bs-source {
   font-size: .85rem;
   position: relative;
