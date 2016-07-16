@@ -397,6 +397,49 @@
     &lt;span class=&quot;label label-pill label-danger&quot;&gt;Label&lt;/span&gt;
     </code></pre>
   </div>
+
+  <h1 id="h1_modal">Modals</h1>
+
+  <h2 id="h2_modal_1">With content and default footer</h2>
+
+  <pre><code>
+  &lt;%= bh_modal &quot;Modal dialog content&quot; %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade in example-modal" id="myModal" role="dialog" tabindex="-1">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>Modal dialog content</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal" type="button">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;div aria-hidden=&quot;true&quot; aria-labelledby=&quot;myModalLabel&quot; class=&quot;modal fade in&quot; id=&quot;myModal&quot; role=&quot;dialog&quot; tabindex=&quot;-1&quot;&gt;
+      &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+          &lt;div class=&quot;modal-body&quot;&gt;
+            &lt;p&gt;Modal dialog content&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;modal-footer&quot;&gt;
+            &lt;button class=&quot;btn btn-secondary&quot; data-dismiss=&quot;modal&quot; type=&quot;button&quot;&gt;
+              Close
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    </code></pre>
+  </div>
 </div>
 
 <div class="col-sm-3">

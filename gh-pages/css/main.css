@@ -84,3 +84,8 @@ ul.contents-list ul li a:hover {
     background: none;
     opacity: 0.7;
   }
+.example-modal {
+  display: block;
+  position: relative;
+  z-index: 1;
+}

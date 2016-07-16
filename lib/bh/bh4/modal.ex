@@ -17,15 +17,15 @@ defmodule Bh.Bh4.Modal do
   @allowed_opts [:id, :size, :title]
 
   @doc """
-  Generates basic HTML markup for dialogs.
+  Generates basic HTML markup for modals.
 
   ## Examples
 
-  This snippet will generate dialog HTML markup with content block with provided
-  text and footer block with "Close" button. This dialog will have default id -
+  This snippet will generate modal HTML markup with content block with provided
+  text and footer block with "Close" button. This modal will have default id -
   "#{@default_id}".
 
-      <%= bh_dialog "Dialog content" %>
+      <%= bh_modal "Modal content" %>
   """
   def bh_modal(content) when is_binary(content) do
     content = content_tag(:p, content)
@@ -33,41 +33,41 @@ defmodule Bh.Bh4.Modal do
   end
 
   @doc """
-  Generates complex HTML markup for dialogs.
+  Generates complex HTML markup for modals.
 
   ## Options
 
-    * `:id` - id of the dialog. Default id is "myDialog". In case of rendering
-    multiple dialogs on the same page, be sure to pass different ids for each
+    * `:id` - id of the modal. Default id is "myDialog". In case of rendering
+    multiple modals on the same page, be sure to pass different ids for each
     of them (or only the first one will be displayed when used). Keep in mind,
     that valid page should not have two same ids.
 
     * `:size` - size of the modal dialog. Supported sizes: `:small`, `:large`.
     When size is not provided, dialog is rendered in standard size.
 
-    * `:title` - title of the modal dialog. When provided, dialog will render
+    * `:title` - title of the modal dialog. When provided, modal will render
     title block with close icon. When `:title` option provided, footer block
     with close button will not be rendered by default.
 
   ## Examples
 
-  In order to give dialog a specific id (in case you have multiple dialogs on
+  In order to give modal a specific id (in case you have multiple modals on
   one page), you have to pass an `:id` option.
 
-      <%= bh_dialog "Dialog content", id: "myCustomId" %>
+      <%= bh_modal "Modal content", id: "myCustomId" %>
 
-  If you want to make dialog smaller or larger - you can pass `:size` option.
+  If you want to make modal smaller or larger - you can pass `:size` option.
 
-      <%= bh_dialog "Dialog content", id: "myCustomId", size: :large %>
+      <%= bh_modal "Modal content", id: "myCustomId", size: :large %>
 
   This will render the title block with the close icon, provided title and given
   content. Footer with the "Close" button as a redundant element will not be
   rendered by default when `:title` is provided.
 
-      <%= bh_dialog "Dialog content", title: "Dialog title" %>
+      <%= bh_modal "Modal content", title: "Modal title" %>
 
   If you need complex HTML markup to be used to display coplex text inside
-  modal window, you can give `bh_dialog` function a block that will be taken
+  modal window, you can give `bh_modal` function a block that will be taken
   for content. Please, note that in such case you should not pass the first
   string argument, but only the list of options.
 
