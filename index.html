@@ -497,6 +497,51 @@
     &lt;/div&gt;
     </code></pre>
   </div>
+
+  <h2 id="h2_modal_3">Modals with custom titles</h2>
+
+  <p>
+    <button class="btn btn-primary" data-target="#myModalEx5" data-toggle="modal" type="button">Launch modal</button>
+    <div aria-hidden="true" aria-labelledby="myModalEx5Label" class="modal fade" id="myModalEx5" role="dialog" tabindex="-1" style="display: none;"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button><h4 class="modal-title" id="myModalEx5Label">Modal title</h4></div><div class="modal-body"><p>Modal content</p></div></div></div></div>
+  </p>
+
+  <pre><code>
+  &lt;%= bh_modal &quot;Modal content&quot;, title: &quot;Modal title&quot; %&gt;
+  </code></pre>
+
+  <div class="bs-example bs-example-modal">
+    <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade in example-modal" id="myModal" role="dialog" tabindex="-1">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <p>Modal content</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;div aria-hidden=&quot;true&quot; aria-labelledby=&quot;myModalLabel&quot; class=&quot;modal fade in&quot; id=&quot;myModal&quot; role=&quot;dialog&quot; tabindex=&quot;-1&quot;&gt;
+      &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+          &lt;div class=&quot;modal-header&quot;&gt;
+            &lt;button aria-label=&quot;Close&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; type=&quot;button&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&times;&lt;/span&gt;&lt;/button&gt;
+            &lt;h4 class=&quot;modal-title&quot; id=&quot;myModalLabel&quot;&gt;Modal title&lt;/h4&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;modal-body&quot;&gt;
+            &lt;p&gt;Modal content&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    </code></pre>
+  </div>
+
 </div>
 
 <div class="col-sm-3">
@@ -538,6 +583,7 @@
       <ul>
         <li><a href="#h2_modal_1">With simple content and default footer</a></li>
         <li><a href="#h2_modal_2">Custom size modals</a></li>
+        <li><a href="#h2_modal_3">Modals with custom titles</a></li>
       </ul>
     </li>
   </ul>
