@@ -451,6 +451,52 @@
     &lt;/div&gt;
     </code></pre>
   </div>
+
+  <h2 id="h2_modal_2">Custom size modals</h2>
+
+  <p>
+    <button class="btn btn-primary" data-target="#myModalEx2" data-toggle="modal" type="button">Launch small modal</button>
+    <button class="btn btn-primary" data-target="#myModalEx4" data-toggle="modal" type="button">Launch standard size modal</button>
+    <button class="btn btn-primary" data-target="#myModalEx3" data-toggle="modal" type="button">Launch large modal</button>
+    <div aria-hidden="true" aria-labelledby="myModalEx2Label" class="modal fade" id="myModalEx2" role="dialog" tabindex="-1" style="display: none;"><div class="modal-dialog modal-sm" role="document"><div class="modal-content"><div class="modal-body"><p>Small modal dialog content</p></div><div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button></div></div></div></div>
+    <div aria-hidden="true" aria-labelledby="myModalEx4Label" class="modal fade" id="myModalEx4" role="dialog" tabindex="-1" style="display: none;"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-body"><p>Standard size modal dialog content</p></div><div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button></div></div></div></div>
+    <div aria-hidden="true" aria-labelledby="myModalEx3Label" class="modal fade" id="myModalEx3" role="dialog" tabindex="-1" style="display: none;"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-body"><p>Large modal dialog content</p></div><div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button></div></div></div></div>
+  </p>
+
+  <pre><code>
+  &lt;%= bh_modal &quot;Small modal dialog content&quot;, size: :small, id: &quot;myModalEx2&quot; %&gt;
+  </code></pre>
+
+  <div class="bs-example bs-example-modal">
+    <div aria-hidden="true" aria-labelledby="myModalEx2Label" class="modal fade in example-modal" id="myModalEx2" role="dialog" tabindex="-1">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>Small modal dialog content</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;div aria-hidden=&quot;true&quot; aria-labelledby=&quot;myModalEx2Label&quot; class=&quot;modal fade in&quot; id=&quot;myModalEx2&quot; role=&quot;dialog&quot; tabindex=&quot;-1&quot;&gt;
+      &lt;div class=&quot;modal-dialog modal-sm&quot; role=&quot;document&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+          &lt;div class=&quot;modal-body&quot;&gt;
+            &lt;p&gt;Small modal dialog content&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;modal-footer&quot;&gt;
+            &lt;button class=&quot;btn btn-secondary&quot; data-dismiss=&quot;modal&quot; type=&quot;button&quot;&gt;Close&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    </code></pre>
+  </div>
 </div>
 
 <div class="col-sm-3">
@@ -491,6 +537,7 @@
       <a href="#h1_modal">Modals</a>
       <ul>
         <li><a href="#h2_modal_1">With simple content and default footer</a></li>
+        <li><a href="#h2_modal_2">Custom size modals</a></li>
       </ul>
     </li>
   </ul>
