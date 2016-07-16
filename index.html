@@ -542,6 +542,65 @@
     </code></pre>
   </div>
 
+  <h2 id="h2_modal_4">Modals with complex content markup</h2>
+
+  <p>
+    <button class="btn btn-primary" data-target="#myModalEx6" data-toggle="modal" type="button">Launch modal</button>
+    <div aria-hidden="true" aria-labelledby="myModalEx6Label" class="modal fade" id="myModalEx6" role="dialog" tabindex="-1" style="display: none;"><div class="modal-dialog modal-sm" role="document"><div class="modal-content"><div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button><h4 class="modal-title" id="myModalEx6Label">Modal title</h4></div><div class="modal-body">  <p>Just any content can be used here.</p><p>You can use buttons:<br><button class="btn btn-primary-outline" type="button">Button</button>  <button class="btn btn-success" type="button">Success</button></p><p><span class="label label-default">E.g.</span> <b>bold</b> and <i>italic</i> text etc.</p></div></div></div></div>
+  </p>
+
+  <pre><code>
+  &lt;%= bh_modal title: &quot;Modal title&quot;, size: :small do %&gt;
+    &lt;p&gt;Just any content can be used here.&lt;/p&gt;
+    &lt;p&gt;You can use buttons:&lt;br /&gt;
+    &lt;%= bh_button_outline &quot;Button&quot; %&gt;
+    &lt;%= bh_button &quot;Success&quot;, context: :success %&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;%= bh_label &quot;E.g.&quot; %&gt; &lt;b&gt;bold&lt;/b&gt; and &lt;i&gt;italic&lt;/i&gt; text etc.&lt;/p&gt;
+  &lt;% end %&gt;
+  </code></pre>
+
+  <div class="bs-example bs-example-modal">
+    <div aria-hidden="true" aria-labelledby="myModalEx6Label" class="modal fade in example-modal" id="myModalEx6" role="dialog" tabindex="-1">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+              <h4 class="modal-title" id="myModalEx6Label">Modal title</h4>
+            </div>
+          <div class="modal-body">
+            <p>Just any content can be used here.</p>
+            <p>You can use buttons:<br>
+              <button class="btn btn-primary-outline" type="button">Button</button>
+              <button class="btn btn-success" type="button">Success</button>
+            </p>
+            <p><span class="label label-default">E.g.</span> <b>bold</b> and <i>italic</i> text etc.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;div aria-hidden=&quot;true&quot; aria-labelledby=&quot;myModalLabel&quot; class=&quot;modal fade in&quot; id=&quot;myModal&quot; role=&quot;dialog&quot; tabindex=&quot;-1&quot;&gt;
+      &lt;div class=&quot;modal-dialog modal-sm&quot; role=&quot;document&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+          &lt;div class=&quot;modal-header&quot;&gt;
+            &lt;button aria-label=&quot;Close&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; type=&quot;button&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;&times;&lt;/span&gt;&lt;/button&gt;
+            &lt;h4 class=&quot;modal-title&quot; id=&quot;myModalLabel&quot;&gt;Modal title&lt;/h4&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;modal-body&quot;&gt;
+            &lt;p&gt;Just any content can be used here.&lt;/p&gt;
+            &lt;p&gt;You can use buttons:&lt;br&gt;
+              &lt;button class=&quot;btn btn-primary-outline&quot; type=&quot;button&quot;&gt;Button&lt;/button&gt;
+              &lt;button class=&quot;btn btn-success&quot; type=&quot;button&quot;&gt;Success&lt;/button&gt;
+            &lt;/p&gt;
+            &lt;p&gt;&lt;span class=&quot;label label-default&quot;&gt;E.g.&lt;/span&gt; &lt;b&gt;bold&lt;/b&gt; and &lt;i&gt;italic&lt;/i&gt; text etc.&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    </code></pre>
+  </div>
 </div>
 
 <div class="col-sm-3">
@@ -584,6 +643,7 @@
         <li><a href="#h2_modal_1">With simple content and default footer</a></li>
         <li><a href="#h2_modal_2">Custom size modals</a></li>
         <li><a href="#h2_modal_3">Modals with custom titles</a></li>
+        <li><a href="#h2_modal_4">Modals with complex content markup</a></li>
       </ul>
     </li>
   </ul>
