@@ -54,6 +54,7 @@ defmodule Bh do
       import Bh.Bh4.Button
       import Bh.Bh4.Alert
       import Bh.Bh4.Modal
+      import Bh.Bh4.Progress
     end
   end
 end
