@@ -40,7 +40,7 @@ defmodule Bh.Bh4.Progress do
   end
 
   defp render_bh_progress(final_opts) do
-    content_tag(:progress, "#{final_opts[:percentage]}%", final_opts)
+    content_tag(:progress, "#{final_opts[:value]}%", final_opts)
   end
 
   defp put_percentage(final_opts, opts) do
