@@ -17,8 +17,8 @@ defmodule Bh.Bh4.Progress do
 
   ## Options
 
-    * `:percentage` - used as a value of a progress bar. Default value - 100
-    (progress is complete).
+    * `:percentage` - used as a value of a progress bar. Default value - 0
+    (zero progress).
 
   ## Examples
 
@@ -47,7 +47,7 @@ defmodule Bh.Bh4.Progress do
     if Keyword.has_key?(opts, :percentage) do
       Keyword.put(final_opts, :value, opts[:percentage])
     else
-      Keyword.put(final_opts, :value, 100)
+      Keyword.put(final_opts, :value, 0)
     end
   end
 end
