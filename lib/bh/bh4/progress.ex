@@ -34,7 +34,7 @@ defmodule Bh.Bh4.Progress do
   Render default HTML5 `progress`:
 
       <%= bh_progress percentage: 50 %>
-      <progress class="progress" max="100" value="50">%</progress>
+      <progress class="progress" max="100" value="50">50%</progress>
   """
   def bh_progress(opts \\ []) do
     opts = Bh.Service.leave_allowed_opts(opts, @allowed_opts)
