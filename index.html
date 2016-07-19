@@ -621,6 +621,33 @@
     &lt;progress class=&quot;progress&quot; max=&quot;100&quot; value=&quot;50&quot;&gt;%&lt;/progress&gt;
     </code></pre>
   </div>
+
+  <h2 id="h2_progress_2">Contextual progress bar</h2>
+
+  <pre><code>
+  &lt;%= bh_progress percentage: 10 %&gt;
+  &lt;%= bh_progress percentage: 30, context: :success %&gt;
+  &lt;%= bh_progress percentage: 50, context: :info %&gt;
+  &lt;%= bh_progress percentage: 70, context: :warning %&gt;
+  &lt;%= bh_progress percentage: 90, context: :danger %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <progress class="progress" max="100" value="10">10%</progress>
+    <progress class="progress progress-success" max="100" value="30">30%</progress>
+    <progress class="progress progress-info" max="100" value="50">50%</progress>
+    <progress class="progress progress-warning" max="100" value="70">70%</progress>
+    <progress class="progress progress-danger" max="100" value="90">90%</progress>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;progress class=&quot;progress&quot; max=&quot;100&quot; value=&quot;10&quot;&gt;10%&lt;/progress&gt;
+    &lt;progress class=&quot;progress progress-success&quot; max=&quot;100&quot; value=&quot;30&quot;&gt;30%&lt;/progress&gt;
+    &lt;progress class=&quot;progress progress-info&quot; max=&quot;100&quot; value=&quot;50&quot;&gt;50%&lt;/progress&gt;
+    &lt;progress class=&quot;progress progress-warning&quot; max=&quot;100&quot; value=&quot;70&quot;&gt;70%&lt;/progress&gt;
+    &lt;progress class=&quot;progress progress-danger&quot; max=&quot;100&quot; value=&quot;90&quot;&gt;90%&lt;/progress&gt;
+    </code></pre>
+  </div>
 </div>
 
 <div class="col-sm-3">
@@ -670,6 +697,7 @@
       <a href="#h1_progress">Progress bars</a>
       <ul>
         <li><a href="#h2_progress_1">Basic progress bar</a></li>
+        <li><a href="#h2_progress_2">Contextual progress bar</a></li>
       </ul>
     </li>
   </ul>
