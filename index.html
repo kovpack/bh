@@ -40,7 +40,7 @@
 
   <h2 id="h2_alert_1">Dismissible alert with context</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_alert &quot;Alert text&quot;, dismissible: true %&gt;
   </code></pre>
 
@@ -63,7 +63,7 @@
 
   <h2 id="h2_alert_2">Alert with id, extra class and context</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_alert &quot;Alert text&quot;, id: :one, class: :extra, context: :danger %&gt;
   </code></pre>
 
@@ -78,7 +78,7 @@
 
   <h2 id="h2_alert_3">Alert with id, extra class and complex markup block</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_alert context: :success, id: :one, class: :extra do %&gt;
     &lt;b&gt;Alert&lt;/b&gt; is &lt;u&gt;very important&lt;/u&gt;
   &lt;% end %&gt;
@@ -99,7 +99,7 @@
 
   <h2 id="h2_alert_4">Dismissible alert with id, extra class and complex markup block</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_alert context: :warning, id: :one, class: :extra, dismissible: true do %&gt;
     &lt;b&gt;Dismissible alert&lt;/b&gt; is &lt;u&gt;very important&lt;/u&gt;
   &lt;% end %&gt;
@@ -126,7 +126,7 @@
 
   <h2 id="h2_button_1">Simple button</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_button &quot;Button&quot; %&gt;
   </code></pre>
 
@@ -141,7 +141,7 @@
 
   <h2 id="h2_button_2">Button with context</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_button &quot;Button&quot;, context: :primary %&gt;
   &lt;%= bh_button &quot;Button&quot;, context: :secondary %&gt;
   &lt;%= bh_button &quot;Button&quot;, context: :success %&gt;
@@ -174,7 +174,7 @@
 
   <h2 id="h2_button_3">Buttons with different sizes</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_button &quot;Button&quot;, size: :small %&gt;
   &lt;%= bh_button &quot;Button&quot; %&gt;
   &lt;%= bh_button &quot;Button&quot;, size: :large %&gt;
@@ -195,7 +195,7 @@
 
   <h2 id="h2_button_4">Buttons with different layout</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_button &quot;Button&quot;, size: :large, layout: :block %&gt;
   </code></pre>
 
@@ -210,7 +210,7 @@
 
   <h2 id="h2_button_5">Buttons with multiple options</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_button &quot;Button&quot;, id: &quot;my_id&quot;, size: :large, context: :warning, class: &quot;extra classes&quot;, data: [val: &quot;value&quot;, other_val: &quot;other_value&quot;] %&gt;
   </code></pre>
 
@@ -225,7 +225,7 @@
 
   <h2 id="h2_button_6">Buttons with complex markup</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_button context: :success do %&gt;
     &lt;span&gt;&lt;b&gt;Bold&lt;/b&gt; and &lt;i&gt;italics&lt;/i&gt; in button text&lt;/span&gt;
   &lt;% end %&gt;
@@ -242,7 +242,7 @@
 
   <h2 id="h2_button_7">Simple outline button</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_button_outline &quot;Button&quot; %&gt;
   </code></pre>
 
@@ -257,7 +257,7 @@
 
   <h2 id="h2_button_8">Outline buttons with context</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_button_outline &quot;Button&quot;, context: :primary %&gt;
   &lt;%= bh_button_outline &quot;Button&quot;, context: :secondary %&gt;
   &lt;%= bh_button_outline &quot;Button&quot;, context: :success %&gt;
@@ -287,7 +287,7 @@
 
   <h2 id="h2_button_9">Outline buttons with different sizes</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_button_outline &quot;Button&quot;, size: :small %&gt;
   &lt;%= bh_button_outline &quot;Button&quot; %&gt;
   &lt;%= bh_button_outline &quot;Button&quot;, size: :large %&gt;
@@ -325,7 +325,7 @@
 
   <h2 id="h2_label_2">Labels with different contexts</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_label &quot;Label&quot;, context: :default %&gt;
   &lt;%= bh_label &quot;Label&quot;, context: :primary %&gt;
   &lt;%= bh_label &quot;Label&quot;, context: :success %&gt;
@@ -370,7 +370,7 @@
 
   <h2 id="h2_label_4">Label pills with different contexts</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_label_pill &quot;Label&quot;, context: :default %&gt;
   &lt;%= bh_label_pill &quot;Label&quot;, context: :primary %&gt;
   &lt;%= bh_label_pill &quot;Label&quot;, context: :success %&gt;
@@ -412,7 +412,7 @@
     <div aria-hidden="true" aria-labelledby="myModalEx1Label" class="modal fade" id="myModalEx1" role="dialog" tabindex="-1" style="display: none;"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-body"><p>Dialog content</p></div><div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button></div></div></div></div>
   </p>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_modal &quot;Modal dialog content&quot; %&gt; # default id is &quot;myModal&quot;
   &lt;%= bh_modal &quot;Modal dialog content&quot;, id: &quot;myModalEx1&quot; %&gt;
   </code></pre>
@@ -463,7 +463,7 @@
     <div aria-hidden="true" aria-labelledby="myModalEx3Label" class="modal fade" id="myModalEx3" role="dialog" tabindex="-1" style="display: none;"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-body"><p>Large modal dialog content</p></div><div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button></div></div></div></div>
   </p>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_modal &quot;Small modal dialog content&quot;, size: :small, id: &quot;myModalEx2&quot; %&gt;
   </code></pre>
 
@@ -505,7 +505,7 @@
     <div aria-hidden="true" aria-labelledby="myModalEx5Label" class="modal fade" id="myModalEx5" role="dialog" tabindex="-1" style="display: none;"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button><h4 class="modal-title" id="myModalEx5Label">Modal title</h4></div><div class="modal-body"><p>Modal content</p></div></div></div></div>
   </p>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_modal &quot;Modal content&quot;, title: &quot;Modal title&quot; %&gt;
   </code></pre>
 
@@ -549,7 +549,7 @@
     <div aria-hidden="true" aria-labelledby="myModalEx6Label" class="modal fade" id="myModalEx6" role="dialog" tabindex="-1" style="display: none;"><div class="modal-dialog modal-sm" role="document"><div class="modal-content"><div class="modal-header"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button><h4 class="modal-title" id="myModalEx6Label">Modal title</h4></div><div class="modal-body">  <p>Just any content can be used here.</p><p>You can use buttons:<br><button class="btn btn-primary-outline" type="button">Button</button>  <button class="btn btn-success" type="button">Success</button></p><p><span class="label label-default">E.g.</span> <b>bold</b> and <i>italic</i> text etc.</p></div></div></div></div>
   </p>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_modal title: &quot;Modal title&quot;, size: :small do %&gt;
     &lt;p&gt;Just any content can be used here.&lt;/p&gt;
     &lt;p&gt;You can use buttons:&lt;br /&gt;
@@ -604,9 +604,9 @@
 
   <h2 id="h1_progress">Progress bars</h2>
 
-  <h2 id="h2_progress_1">Basic progress bar</h2>
+  <h2 id="h2_progress_1">Basic progress bars</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_progress %&gt;
   &lt;%= bh_progress percentage: 50 %&gt;
   </code></pre>
@@ -622,9 +622,9 @@
     </code></pre>
   </div>
 
-  <h2 id="h2_progress_2">Contextual progress bar</h2>
+  <h2 id="h2_progress_2">Contextual progress bars</h2>
 
-  <pre><code>
+  <pre><code class="hljs elixir">
   &lt;%= bh_progress percentage: 10 %&gt;
   &lt;%= bh_progress percentage: 30, context: :success %&gt;
   &lt;%= bh_progress percentage: 50, context: :info %&gt;
@@ -646,6 +646,33 @@
     &lt;progress class=&quot;progress progress-info&quot; max=&quot;100&quot; value=&quot;50&quot;&gt;50%&lt;/progress&gt;
     &lt;progress class=&quot;progress progress-warning&quot; max=&quot;100&quot; value=&quot;70&quot;&gt;70%&lt;/progress&gt;
     &lt;progress class=&quot;progress progress-danger&quot; max=&quot;100&quot; value=&quot;90&quot;&gt;90%&lt;/progress&gt;
+    </code></pre>
+  </div>
+
+  <h2 id="h2_progress_3">Striped progress bars</h2>
+
+  <pre><code class="hljs elixir">
+  &lt;%= bh_progress percentage: 10, striped: :true %&gt;
+  &lt;%= bh_progress percentage: 30, context: :success, striped: true %&gt;
+  &lt;%= bh_progress percentage: 50, context: :info, striped: true %&gt;
+  &lt;%= bh_progress percentage: 70, context: :warning, striped: true %&gt;
+  &lt;%= bh_progress percentage: 90, context: :danger, striped: true %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <progress class="progress progress-striped" max="100" value="10">10%</progress>
+    <progress class="progress progress-striped progress-success" max="100" value="30">30%</progress>
+    <progress class="progress progress-striped progress-info" max="100" value="50">50%</progress>
+    <progress class="progress progress-striped progress-warning" max="100" value="70">70%</progress>
+    <progress class="progress progress-striped progress-danger" max="100" value="90">90%</progress>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;progress class=&quot;progress progress-striped&quot; max=&quot;100&quot; value=&quot;10&quot;&gt;10%&lt;/progress&gt;
+    &lt;progress class=&quot;progress progress-striped progress-success&quot; max=&quot;100&quot; value=&quot;30&quot;&gt;30%&lt;/progress&gt;
+    &lt;progress class=&quot;progress progress-striped progress-info&quot; max=&quot;100&quot; value=&quot;50&quot;&gt;50%&lt;/progress&gt;
+    &lt;progress class=&quot;progress progress-striped progress-warning&quot; max=&quot;100&quot; value=&quot;70&quot;&gt;70%&lt;/progress&gt;
+    &lt;progress class=&quot;progress progress-striped progress-danger&quot; max=&quot;100&quot; value=&quot;90&quot;&gt;90%&lt;/progress&gt;
     </code></pre>
   </div>
 </div>
@@ -696,9 +723,9 @@
     <li>
       <a href="#h1_progress">Progress bars</a>
       <ul>
-        <li><a href="#h2_progress_1">Basic progress bar</a></li>
-        <li><a href="#h2_progress_2">Contextual progress bar</a></li>
-        <li><a href="#h2_progress_3">Contextual progress bar</a></li>
+        <li><a href="#h2_progress_1">Basic progress bars</a></li>
+        <li><a href="#h2_progress_2">Contextual progress bars</a></li>
+        <li><a href="#h2_progress_3">Striped progress bars</a></li>
       </ul>
     </li>
   </ul>
