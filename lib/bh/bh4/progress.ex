@@ -8,7 +8,7 @@ defmodule Bh.Bh4.Progress do
   [Project](https://kovpack.github.io/bh/).
   """
 
-  @allowed_opts [:percentage, :context, :stripped]
+  @allowed_opts [:percentage, :context, :striped]
 
   @contexts [:success, :info, :warning, :danger]
 
@@ -26,8 +26,8 @@ defmodule Bh.Bh4.Progress do
     needed, which renderes blue proggress bar. Allowed options: `:success`,
     `:info`, `:warning` and `:danger`.
 
-    * `:stripped` - boolean value. Pass `:true` if you need stripped progress
-    bar. By default progress bar is not stripped.
+    * `:striped` - boolean value. Pass `:true` if you need striped progress
+    bar. By default progress bar is not striped.
 
   ## Examples
 
@@ -45,7 +45,7 @@ defmodule Bh.Bh4.Progress do
       |> Keyword.put(:max, 100)
       |> put_percentage(opts)
       |> put_progress_context(opts)
-      |> put_stripped(opts)
+      |> put_striped(opts)
 
     render_bh_progress(final_opts)
   end
@@ -54,11 +54,11 @@ defmodule Bh.Bh4.Progress do
     content_tag(:progress, "#{final_opts[:value]}%", final_opts)
   end
 
-  defp put_stripped(final_opts, opts) do
-    if Keyword.has_key?(opts, :stripped) && is_boolean(opts[:stripped]) do
+  defp put_striped(final_opts, opts) do
+    if Keyword.has_key?(opts, :striped) && is_boolean(opts[:striped]) do
       extra_class =
-        case opts[:stripped] do
-          true -> "progress-stripped"
+        case opts[:striped] do
+          true -> "progress-striped"
           _    -> ""
         end
       Keyword.put(final_opts, :class, "#{final_opts[:class]} #{extra_class}")
