@@ -8,7 +8,9 @@ defmodule Bh.Bh4.Progress do
   [Project](https://kovpack.github.io/bh/).
   """
 
-  @allowed_opts [:percentage]
+  @allowed_opts [:percentage, :context]
+
+  @contexts [:success, :info, :warning, :danger]
 
   use Phoenix.HTML
 
@@ -35,12 +37,23 @@ defmodule Bh.Bh4.Progress do
       |> Keyword.put(:class, "progress")
       |> Keyword.put(:max, 100)
       |> put_percentage(opts)
+      |> put_progress_context(opts)
 
     render_bh_progress(final_opts)
   end
 
   defp render_bh_progress(final_opts) do
     content_tag(:progress, "#{final_opts[:value]}%", final_opts)
+  end
+
+  defp put_progress_context(final_opts, opts) do
+    if Keyword.has_key?(opts, :context) && opts[:context] in @contexts do
+      with extra_class = "progress-#{opts[:context]}" do
+        Keyword.put(final_opts, :class, "#{final_opts[:class]} #{extra_class}")
+      end
+    else
+      final_opts
+    end
   end
 
   defp put_percentage(final_opts, opts) do

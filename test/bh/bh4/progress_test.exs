@@ -4,6 +4,8 @@ defmodule Bh.Bh4.ProgressTest do
 
   import Bh.Bh4.Progress
 
+  @contexts [:success, :info, :warning, :danger]
+
   test "renders progress by default with value 0 percents" do
     expected =
       ~s(<progress class="progress" max="100" value="0">0%</progress>)
@@ -18,5 +20,18 @@ defmodule Bh.Bh4.ProgressTest do
     rendered = bh_progress(percentage: 30) |> Phoenix.HTML.safe_to_string
 
     assert rendered == expected
+  end
+
+  test "renders progress with proper context" do
+    for context <- @contexts do
+      classes = "progress progress-#{context}"
+      expected =
+        ~s(<progress class="#{classes}" max="100" value="30">30%</progress>)
+      rendered =
+        bh_progress(percentage: 30, context: context)
+        |> Phoenix.HTML.safe_to_string
+
+      assert rendered == expected
+    end
   end
 end
