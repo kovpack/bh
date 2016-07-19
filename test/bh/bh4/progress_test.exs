@@ -34,4 +34,15 @@ defmodule Bh.Bh4.ProgressTest do
       assert rendered == expected
     end
   end
+
+  test "renders stripped progress bar if option stripped: true is provided" do
+    classes = "progress progress-stripped"
+    expected =
+      ~s(<progress class="#{classes}" max="100" value="30">30%</progress>)
+    rendered =
+      bh_progress(percentage: 30, stripped: true)
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
 end

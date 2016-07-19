@@ -8,7 +8,7 @@ defmodule Bh.Bh4.Progress do
   [Project](https://kovpack.github.io/bh/).
   """
 
-  @allowed_opts [:percentage, :context]
+  @allowed_opts [:percentage, :context, :stripped]
 
   @contexts [:success, :info, :warning, :danger]
 
@@ -21,6 +21,13 @@ defmodule Bh.Bh4.Progress do
 
     * `:percentage` - used as a value of a progress bar. Default value - 0
     (zero progress).
+
+    * `:context` - context of the progress bar. Be default context is not
+    needed, which renderes blue proggress bar. Allowed options: `:success`,
+    `:info`, `:warning` and `:danger`.
+
+    * `:stripped` - boolean value. Pass `:true` if you need stripped progress
+    bar. By default progress bar is not stripped.
 
   ## Examples
 
@@ -38,12 +45,26 @@ defmodule Bh.Bh4.Progress do
       |> Keyword.put(:max, 100)
       |> put_percentage(opts)
       |> put_progress_context(opts)
+      |> put_stripped(opts)
 
     render_bh_progress(final_opts)
   end
 
   defp render_bh_progress(final_opts) do
     content_tag(:progress, "#{final_opts[:value]}%", final_opts)
+  end
+
+  defp put_stripped(final_opts, opts) do
+    if Keyword.has_key?(opts, :stripped) && is_boolean(opts[:stripped]) do
+      extra_class =
+        case opts[:stripped] do
+          true -> "progress-stripped"
+          _    -> ""
+        end
+      Keyword.put(final_opts, :class, "#{final_opts[:class]} #{extra_class}")
+    else
+      final_opts
+    end
   end
 
   defp put_progress_context(final_opts, opts) do
