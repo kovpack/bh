@@ -59,13 +59,8 @@ defmodule Bh.Bh4.Progress do
   end
 
   defp put_striped(final_opts, opts) do
-    if Keyword.has_key?(opts, :striped) && is_boolean(opts[:striped]) do
-      extra_class =
-        case opts[:striped] do
-          true -> "progress-striped"
-          _    -> ""
-        end
-      Keyword.put(final_opts, :class, "#{final_opts[:class]} #{extra_class}")
+    if Keyword.has_key?(opts, :striped) && opts[:striped] == true do
+      Keyword.put(final_opts, :class, "#{final_opts[:class]} progress-striped")
     else
       final_opts
     end
