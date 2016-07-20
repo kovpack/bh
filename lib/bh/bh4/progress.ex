@@ -8,7 +8,7 @@ defmodule Bh.Bh4.Progress do
   [Project](https://kovpack.github.io/bh/).
   """
 
-  @allowed_opts [:percentage, :context, :striped]
+  @allowed_opts [:percentage, :context, :striped, :animated]
 
   @contexts [:success, :info, :warning, :danger]
 
@@ -29,6 +29,9 @@ defmodule Bh.Bh4.Progress do
     * `:striped` - boolean value. Pass `:true` if you need striped progress
     bar. By default progress bar is not striped.
 
+    * `:animated` - boolean value. Pass `:true` if you need animated progress
+    bar. Be default progress bar has no CSS3 amination.
+
   ## Examples
 
   Render default HTML5 `progress`:
@@ -46,6 +49,7 @@ defmodule Bh.Bh4.Progress do
       |> put_percentage(opts)
       |> put_progress_context(opts)
       |> put_striped(opts)
+      |> put_animated(opts)
 
     render_bh_progress(final_opts)
   end
@@ -59,6 +63,19 @@ defmodule Bh.Bh4.Progress do
       extra_class =
         case opts[:striped] do
           true -> "progress-striped"
+          _    -> ""
+        end
+      Keyword.put(final_opts, :class, "#{final_opts[:class]} #{extra_class}")
+    else
+      final_opts
+    end
+  end
+
+  defp put_animated(final_opts, opts) do
+    if Keyword.has_key?(opts, :animated) && is_boolean(opts[:animated]) do
+      extra_class =
+        case opts[:animated] do
+          true -> "progress-animated"
           _    -> ""
         end
       Keyword.put(final_opts, :class, "#{final_opts[:class]} #{extra_class}")
