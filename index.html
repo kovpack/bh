@@ -675,6 +675,34 @@
     &lt;progress class=&quot;progress progress-striped progress-danger&quot; max=&quot;100&quot; value=&quot;90&quot;&gt;90%&lt;/progress&gt;
     </code></pre>
   </div>
+
+  <h2 id="h2_progress_4">Animated progress bars</h2>
+
+  <pre><code class="hljs elixir">
+  &lt;%= bh_progress percentage: 10, striped: true, animated: true %&gt;
+  &lt;%= bh_progress percentage: 30, context: :success, striped: true, animated: true %&gt;
+  &lt;%= bh_progress percentage: 50, context: :info, striped: true, animated: true %&gt;
+  &lt;%= bh_progress percentage: 70, context: :warning, striped: true, animated: true %&gt;
+  &lt;%= bh_progress percentage: 90, context: :danger, striped: true, animated: true %&gt;
+  </code></pre>
+
+  <div class="bs-example">
+    <progress class="progress progress-striped progress-animated" max="100" value="10">10%</progress>
+    <progress class="progress progress-striped progress-success progress-animated" max="100" value="30">30%</progress>
+    <progress class="progress progress-striped progress-info progress-animated" max="100" value="50">50%</progress>
+    <progress class="progress progress-striped progress-warning progress-animated" max="100" value="70">70%</progress>
+    <progress class="progress progress-striped progress-danger progress-animated" max="100" value="90">90%</progress>
+  </div>
+  <div class="bs-source">
+    <pre><code>
+    &lt;progress class=&quot;progress progress-striped progress-animated&quot; max=&quot;100&quot; value=&quot;10&quot;&gt;10%&lt;/progress&gt;
+    &lt;progress class=&quot;progress progress-striped progress-success progress-animated&quot; max=&quot;100&quot; value=&quot;30&quot;&gt;30%&lt;/progress&gt;
+    &lt;progress class=&quot;progress progress-striped progress-info progress-animated&quot; max=&quot;100&quot; value=&quot;50&quot;&gt;50%&lt;/progress&gt;
+    &lt;progress class=&quot;progress progress-striped progress-warning progress-animated&quot; max=&quot;100&quot; value=&quot;70&quot;&gt;70%&lt;/progress&gt;
+    &lt;progress class=&quot;progress progress-striped progress-danger progress-animated&quot; max=&quot;100&quot; value=&quot;90&quot;&gt;90%&lt;/progress&gt;
+    </code></pre>
+  </div>
+
 </div>
 
 <div class="col-md-3 hidden-sm-down">
@@ -726,6 +754,7 @@
         <li><a href="#h2_progress_1">Basic progress bars</a></li>
         <li><a href="#h2_progress_2">Contextual progress bars</a></li>
         <li><a href="#h2_progress_3">Striped progress bars</a></li>
+        <li><a href="#h2_progress_4">Animated progress bars</a></li>
       </ul>
     </li>
   </ul>
