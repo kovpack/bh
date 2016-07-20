@@ -67,13 +67,8 @@ defmodule Bh.Bh4.Progress do
   end
 
   defp put_animated(final_opts, opts) do
-    if Keyword.has_key?(opts, :animated) && is_boolean(opts[:animated]) do
-      extra_class =
-        case opts[:animated] do
-          true -> "progress-animated"
-          _    -> ""
-        end
-      Keyword.put(final_opts, :class, "#{final_opts[:class]} #{extra_class}")
+    if Keyword.has_key?(opts, :animated) && opts[:animated] == true do
+      Keyword.put(final_opts, :class, "#{final_opts[:class]} progress-animated")
     else
       final_opts
     end
