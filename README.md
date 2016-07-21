@@ -1,6 +1,6 @@
 # Bh
 
-Twitter Bootstrap 4 helpers for Phoenix.
+Twitter Bootstrap 4 & Twitter Bootstrap 3 helpers for Phoenix.
 
 This package is designed to minimize repetitive code and the amount of HTML
 markup in your project's source code.
@@ -31,7 +31,7 @@ def deps do
 end
 ```
 
-- Use `use Bh` to import all helpers into needed view:
+- Use `use Bh` to import all **Bootstrap 4** helpers into needed view:
 
 ```
 defmodule YourApp.SomeView do
@@ -40,11 +40,25 @@ defmodule YourApp.SomeView do
 end
 ```
 
+If you want to use **Bootstrap 3** helpers, you have to pass an extra option
+like this:
+
+```
+defmodule YourApp.SomeView do
+  use YourApp.Web, :view
+  use Bh, bootstrap: 3
+end
+```
+
 - Now you can use helpers in your view like this:
 
 ```
-<%= bh_label_pill "Pill text", context: :success %>
+<%= bh_label "Pill text", context: :success %>
 ```
+
+**NOTE:** keep in mind, that **Bootstrap 3** and **Bootstrap 4** helpers can
+have different APIs and may be not compatible, so check documentation or live
+examples.
 
 ## Licence
 

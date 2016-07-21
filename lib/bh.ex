@@ -1,6 +1,6 @@
 defmodule Bh do
   @moduledoc """
-  Twitter Bootstrap 4 helpers for Phoenix.
+  Twitter Bootstrap 4 & Twitter Bootstrap 3 helpers for Phoenix.
 
   This package is designed to minimize repetitive code and the amount of HTML
   markup in your project's source code.
@@ -23,23 +23,40 @@ defmodule Bh do
 
   # Usage
 
-  Use `use Bh` in your view file to import all helpers at once:
+  Use `use Bh` in your view file to import all **Bootstrap 4** (which is
+  default) helpers at once:
 
       defmodule YourApp.SomeView do
         use YourApp.Web, :view
         use Bh
       end
 
+  If you want to use **Bootstrap 3** helpers, you have to pass an extra option
+  like this:
+
+      defmodule YourApp.SomeView do
+        use YourApp.Web, :view
+        use Bh, bootstrap: 3
+      end
+
+  **NOTE:** keep in mind, that Bootstrap 3 and Bootstrap 4 helpers can have
+  different APIs and may be not compatible, so check documentation or live
+  examples.
+
   Now you can use all helpers directly calling `bh_label/1`, `bh_label/2` etc.
-  E.g., if you need Bootstrap 4 pill label, instead of adding this HTML
 
-      <span class="label label-pill label-default">Default pill label</span>
+  If you need Bootstrap 4 or Bootstrap 3 standard label, instead of adding this
+  HTML to your code (both versions of Bootstrap have the same markup for simple
+  labels):
 
-  to your code, you can simply use helper for this:
+      <span class="label label-default">Default label</span>
 
-      <%= bh_label_pill "Default pill label" %>
+  you can simply use helper for this:
 
-  Or if you need other type of pill, you can specify its context:
+      <%= bh_label "Default label" %>
+
+  Or if you need contextual label pill for Bootstrap 4 only, you can use
+  `bh_label_pill/2` function having specified also its context:
 
       <%= bh_label_pill "Danger pill label", context: :danger %>
 
@@ -48,13 +65,19 @@ defmodule Bh do
       <span class="label label-pill label-danger">Danger pill label</span>
   """
 
-  defmacro __using__(_) do
-    quote do
-      import Bh.Bh4.Label
-      import Bh.Bh4.Button
-      import Bh.Bh4.Alert
-      import Bh.Bh4.Modal
-      import Bh.Bh4.Progress
+  defmacro __using__(opts \\ []) do
+    if Keyword.has_key?(opts, :bootstrap) && opts[:bootstrap] == 3 do
+      quote do
+        import Bh.Bh3.Label
+      end
+    else
+      quote do
+        import Bh.Bh4.Label
+        import Bh.Bh4.Button
+        import Bh.Bh4.Alert
+        import Bh.Bh4.Modal
+        import Bh.Bh4.Progress
+      end
     end
   end
 end
