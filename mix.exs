@@ -23,7 +23,7 @@ defmodule Bh.Mixfile do
 
   def description do
     """
-    Twitter Bootstrap 4 helpers for Phoenix.
+    Twitter Bootstrap 4 and Bootstrap 3 helpers for Phoenix.
     """
   end
 
