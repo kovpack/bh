@@ -71,6 +71,7 @@ defmodule Bh do
         import Bh.Bh3.Label
         import Bh.Bh3.Badge
         import Bh.Bh3.Icon
+        import Bh.Bh3.Alert
       end
     else
       quote do
