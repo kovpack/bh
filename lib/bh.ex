@@ -70,6 +70,7 @@ defmodule Bh do
       quote do
         import Bh.Bh3.Label
         import Bh.Bh3.Badge
+        import Bh.Bh3.Icon
       end
     else
       quote do
