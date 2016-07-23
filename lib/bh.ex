@@ -69,6 +69,7 @@ defmodule Bh do
     if Keyword.has_key?(opts, :bootstrap) && opts[:bootstrap] == 3 do
       quote do
         import Bh.Bh3.Label
+        import Bh.Bh3.Badge
       end
     else
       quote do
