@@ -8,8 +8,7 @@ defmodule Bh.Bh3.ProgressTest do
     expected =
       ~s(<div class="progress">)                                          <>
         ~s(<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" ) <>
-          ~s(class="progress-bar" role="progressbar" style="width: 0%;")  <>
-         ~s(>)                                                            <>
+          ~s(class="progress-bar" role="progressbar" style="width: 0%;">) <>
           ~s(<span class="sr-only">0% Complete</span>)                    <>
         ~s(</div>)                                                        <>
       ~s(</div>)
@@ -22,8 +21,7 @@ defmodule Bh.Bh3.ProgressTest do
     expected =
       ~s(<div class="progress">)                                           <>
         ~s(<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" ) <>
-          ~s(class="progress-bar" role="progressbar" style="width: 60%;")  <>
-         ~s(>)                                                             <>
+          ~s(class="progress-bar" role="progressbar" style="width: 60%;">) <>
           ~s(<span class="sr-only">60% Complete</span>)                    <>
         ~s(</div>)                                                         <>
       ~s(</div>)
