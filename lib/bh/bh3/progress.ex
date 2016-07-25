@@ -3,7 +3,7 @@ defmodule Bh.Bh3.Progress do
   Twitter Bootstrap 3 progress bar helpers for Phoenix.
   """
 
-  @allowed_opts [:percentage, :context]
+  @allowed_opts [:percentage, :context, :striped]
 
   @contexts [:success, :info, :warning, :danger]
 
@@ -20,6 +20,9 @@ defmodule Bh.Bh3.Progress do
     * `:context` - context of the progress bar. Be default context is not
     needed, so helper renderes blue proggress bar. Allowed options: `:success`,
     `:info`, `:warning` and `:danger`.
+
+    * `:striped` - boolean value. Pass `true` if you need striped progress
+    bar. By default progress bar is not striped.
 
   ## Examples
 
@@ -40,6 +43,7 @@ defmodule Bh.Bh3.Progress do
       |> Keyword.put(:class, "progress-bar")
       |> put_percentage(opts)
       |> put_progress_context(opts)
+      |> put_striped(opts)
 
     render_bh_progress(final_opts)
   end
@@ -68,6 +72,15 @@ defmodule Bh.Bh3.Progress do
       with extra_class = "progress-bar-#{opts[:context]}" do
         Keyword.put(final_opts, :class, "#{final_opts[:class]} #{extra_class}")
       end
+    else
+      final_opts
+    end
+  end
+
+  defp put_striped(final_opts, opts) do
+    if Keyword.has_key?(opts, :striped) && opts[:striped] == true do
+      final_classes = "#{final_opts[:class]} progress-bar-striped"
+      Keyword.put(final_opts, :class, final_classes)
     else
       final_opts
     end

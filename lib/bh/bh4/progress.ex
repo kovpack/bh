@@ -26,10 +26,10 @@ defmodule Bh.Bh4.Progress do
     needed, so helper renders blue proggress bar. Allowed options: `:success`,
     `:info`, `:warning` and `:danger`.
 
-    * `:striped` - boolean value. Pass `:true` if you need striped progress
+    * `:striped` - boolean value. Pass `true` if you need striped progress
     bar. By default progress bar is not striped.
 
-    * `:animated` - boolean value. Pass `:true` if you need animated progress
+    * `:animated` - boolean value. Pass `true` if you need animated progress
     bar. Be default progress bar has no CSS3 amination.
 
   ## Examples
