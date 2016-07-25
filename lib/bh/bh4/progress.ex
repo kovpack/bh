@@ -23,7 +23,7 @@ defmodule Bh.Bh4.Progress do
     (zero progress).
 
     * `:context` - context of the progress bar. Be default context is not
-    needed, which renderes blue proggress bar. Allowed options: `:success`,
+    needed, so helper renders blue proggress bar. Allowed options: `:success`,
     `:info`, `:warning` and `:danger`.
 
     * `:striped` - boolean value. Pass `:true` if you need striped progress

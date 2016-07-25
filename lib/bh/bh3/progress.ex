@@ -3,7 +3,9 @@ defmodule Bh.Bh3.Progress do
   Twitter Bootstrap 3 progress bar helpers for Phoenix.
   """
 
-  @allowed_opts [:percentage]
+  @allowed_opts [:percentage, :context]
+
+  @contexts [:success, :info, :warning, :danger]
 
   use Phoenix.HTML
 
@@ -14,6 +16,10 @@ defmodule Bh.Bh3.Progress do
 
     * `:percentage` - used as a value of a progress bar. Default value - 0
     (zero progress).
+
+    * `:context` - context of the progress bar. Be default context is not
+    needed, so helper renderes blue proggress bar. Allowed options: `:success`,
+    `:info`, `:warning` and `:danger`.
 
   ## Examples
 
@@ -31,14 +37,16 @@ defmodule Bh.Bh3.Progress do
 
     final_opts =
       []
+      |> Keyword.put(:class, "progress-bar")
       |> put_percentage(opts)
+      |> put_progress_context(opts)
 
     render_bh_progress(final_opts)
   end
 
   defp render_bh_progress(final_opts) do
     inner_opts = [
-      class:           "progress-bar",
+      class:           final_opts[:class],
       role:            "progressbar",
       "aria-valuenow": final_opts[:percentage],
       "aria-valuemin": 0,
@@ -52,6 +60,16 @@ defmodule Bh.Bh3.Progress do
           "#{final_opts[:percentage]}% Complete"
         end
       end
+    end
+  end
+
+  defp put_progress_context(final_opts, opts) do
+    if Keyword.has_key?(opts, :context) && opts[:context] in @contexts do
+      with extra_class = "progress-bar-#{opts[:context]}" do
+        Keyword.put(final_opts, :class, "#{final_opts[:class]} #{extra_class}")
+      end
+    else
+      final_opts
     end
   end
 
