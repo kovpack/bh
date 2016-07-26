@@ -24,6 +24,10 @@ defmodule Bh.Bh3.Progress do
     * `:striped` - boolean value. Pass `true` if you need striped progress
     bar. By default progress bar is not striped.
 
+    * `:animated` - boolean value. Pass `true` if you need animated progress
+    bar. Be default progress bar has no CSS3 amination. Note, that only striped
+    progress bars can be animated.
+
   ## Examples
 
   Render markup for progress:
