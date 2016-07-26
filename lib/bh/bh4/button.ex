@@ -63,7 +63,14 @@ defmodule Bh.Bh4.Button do
       <% end %>
       <button class="btn btn-success" id="my_id" type="button"><span><b>Bold</b> and <i>italics</i> in button text</span></button>
   """
-  def bh_button(text, opts \\ [])
+  def bh_button(text) when is_binary(text) do
+    bh_button(text, [])
+  end
+  def bh_button([do: block]) do
+    block
+    |> Bh.Service.trim_safe_text
+    |> bh_context_extended_button([])
+  end
   def bh_button(opts, [do: block]) when is_list(opts) do
     block
     |> Bh.Service.trim_safe_text
