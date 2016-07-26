@@ -28,4 +28,17 @@ defmodule Bh.Bh3.ButtonTest do
       assert rendered == expected
     end
   end
+
+  test "renders id of the button if provided" do
+    expected =
+      ~s(<button class="btn btn-default" id="myButton" type="button">) <>
+        ~s(Button)                                                     <>
+      ~s(</button>)
+
+    rendered =
+      bh_button("Button", id: "myButton")
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
 end

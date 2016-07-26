@@ -9,7 +9,7 @@ defmodule Bh.Bh3.Button do
 
   @contexts [@default, :primary, :success, :info, :warning, :danger, :link]
 
-  @allowed_opts [:context]
+  @allowed_opts [:context, :id]
 
   @doc """
   Generates complex button HTML markup.
@@ -19,6 +19,8 @@ defmodule Bh.Bh3.Button do
     * `:context` - context of the button. Allowed values are `:default`,
     `:primary`, `:success`, `:info`, `:warning`, `:danger`, `:link`. Default
     context is `:default`.
+
+    * `:id` - id of the button.
 
   ## Examples
 
@@ -37,6 +39,7 @@ defmodule Bh.Bh3.Button do
       []
       |> Keyword.put(:type, :button)
       |> put_button_context(opts)
+      |> Bh.Service.put_id_if_present(opts)
 
     content_tag(:button, text, final_opts)
   end
