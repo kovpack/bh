@@ -3,7 +3,7 @@ defmodule Bh.Bh3.Progress do
   Twitter Bootstrap 3 progress bar helpers for Phoenix.
   """
 
-  @allowed_opts [:percentage, :context, :striped]
+  @allowed_opts [:percentage, :context, :striped, :animated]
 
   @contexts [:success, :info, :warning, :danger]
 
@@ -44,6 +44,7 @@ defmodule Bh.Bh3.Progress do
       |> put_percentage(opts)
       |> put_progress_context(opts)
       |> put_striped(opts)
+      |> put_animated(opts)
 
     render_bh_progress(final_opts)
   end
@@ -81,6 +82,14 @@ defmodule Bh.Bh3.Progress do
     if Keyword.has_key?(opts, :striped) && opts[:striped] == true do
       final_classes = "#{final_opts[:class]} progress-bar-striped"
       Keyword.put(final_opts, :class, final_classes)
+    else
+      final_opts
+    end
+  end
+
+  defp put_animated(final_opts, opts) do
+    if Keyword.has_key?(opts, :animated) && opts[:animated] == true do
+      Keyword.put(final_opts, :class, "#{final_opts[:class]} active")
     else
       final_opts
     end

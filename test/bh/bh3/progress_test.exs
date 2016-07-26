@@ -67,4 +67,21 @@ defmodule Bh.Bh3.ProgressTest do
 
     assert rendered == expected
   end
+
+  test "renders animated progress bar if option animated: true is provided" do
+    expected =
+      ~s(<div class="progress">)                                           <>
+        ~s(<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" ) <>
+          ~s(class="progress-bar progress-bar-striped active" )            <>
+          ~s(role="progressbar" style="width: 30%;">)                      <>
+          ~s(<span class="sr-only">30% Complete</span>)                    <>
+        ~s(</div>)                                                         <>
+      ~s(</div>)
+
+    rendered =
+      bh_progress(percentage: 30, striped: true, animated: true)
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
 end
