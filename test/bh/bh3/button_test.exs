@@ -62,4 +62,17 @@ defmodule Bh.Bh3.ButtonTest do
       assert rendered == expected
     end
   end
+
+  test "button block layout rendered properly" do
+    expected =
+      ~s(<button class="btn btn-default btn-block" type="button">) <>
+        ~s(Button)                                                 <>
+      ~s(</button>)
+
+    rendered =
+      bh_button("Button", layout: :block)
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
 end
