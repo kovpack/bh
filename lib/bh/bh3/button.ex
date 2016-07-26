@@ -7,12 +7,18 @@ defmodule Bh.Bh3.Button do
 
   @default :default
 
-  @contexts [@default]
+  @contexts [@default, :primary, :success, :info, :warning, :danger, :link]
 
-  @allowed_opts []
+  @allowed_opts [:context]
 
   @doc """
   Generates complex button HTML markup.
+
+  ## Options
+
+    * `:context` - context of the button. Allowed values are `:default`,
+    `:primary`, `:success`, `:info`, `:warning`, `:danger`, `:link`. Default
+    context is `:default`.
 
   ## Examples
 
