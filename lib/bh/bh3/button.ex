@@ -9,7 +9,7 @@ defmodule Bh.Bh3.Button do
 
   @contexts [@default, :primary, :success, :info, :warning, :danger, :link]
 
-  @allowed_opts [:context, :id]
+  @allowed_opts [:context, :id, :size]
 
   @doc """
   Generates complex button HTML markup.
@@ -21,6 +21,10 @@ defmodule Bh.Bh3.Button do
     context is `:default`.
 
     * `:id` - id of the button.
+
+    * `:size` - size of the button. Supported sizes: `:large` (alias `:lg`),
+    `:small` (alias `:sm`) and `:extra_small` (alias `:xs`).  By default the
+    `:size` is not set (standard button size).
 
   ## Examples
 
@@ -40,6 +44,7 @@ defmodule Bh.Bh3.Button do
       |> Keyword.put(:type, :button)
       |> put_button_context(opts)
       |> Bh.Service.put_id_if_present(opts)
+      |> put_button_size(opts)
 
     content_tag(:button, text, final_opts)
   end
@@ -49,6 +54,25 @@ defmodule Bh.Bh3.Button do
       Keyword.put(final_opts, :class, "btn btn-#{opts[:context]}")
     else
       Keyword.put(final_opts, :class, "btn btn-#{@default}")
+    end
+  end
+
+  defp put_button_size(final_opts, opts) do
+    allowed_sizes = [:large, :lg, :small, :sm, :extra_small, :xs]
+
+    if Keyword.has_key?(opts, :size) && opts[:size] in allowed_sizes do
+      size_class = case opts[:size] do
+        :large       -> "btn-lg"
+        :lg          -> "btn-lg"
+        :small       -> "btn-sm"
+        :sm          -> "btn-sm"
+        :extra_small -> "btn-xs"
+        :xs          -> "btn-xs"
+      end
+
+      Keyword.put(final_opts, :class, "#{final_opts[:class]} #{size_class}")
+    else
+      final_opts
     end
   end
 end

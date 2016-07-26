@@ -41,4 +41,25 @@ defmodule Bh.Bh3.ButtonTest do
 
     assert rendered == expected
   end
+
+  test "all button sizes are rendered properly" do
+    sizes = [
+      large: "lg",       lg: "lg",
+      small: "sm",       sm: "sm",
+      extra_small: "xs", xs: "xs"
+    ]
+
+    for {key, val} <- sizes do
+      expected =
+        ~s(<button class="btn btn-default btn-#{val}" type="button">) <>
+          ~s(Button)                                                  <>
+        ~s(</button>)
+
+      rendered =
+        bh_button("Button", size: key)
+        |> Phoenix.HTML.safe_to_string
+
+      assert rendered == expected
+    end
+  end
 end
