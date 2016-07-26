@@ -33,6 +33,15 @@ defmodule Bh.Bh3.Button do
 
       <%= bh_button "Button" %>
       <button class="btn btn-default" type="button">Button</button>
+
+  You can pass only block of complex HTML without any options if needed.
+
+      <%= bh_button do %>
+        <span>Some content and <b>bold words</b></span>
+      <%= end %>
+      <button class="btn btn-default" type="button">
+        <span>Some content and <b>bold words</b></span>
+      </button>
   """
   def bh_button(text) when is_binary(text) do
     bh_button(text, [])
