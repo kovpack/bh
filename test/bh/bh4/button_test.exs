@@ -116,7 +116,7 @@ defmodule Bh.Bh4.ButtonTest do
     end
   end
 
-  test "button with complex block with safe text is rendered properly" do
+  test "button with complex block of safe text is rendered properly" do
     for context <- @contexts do
       expected =
         ~s(<button class="btn btn-#{context}" type="button">)  <>

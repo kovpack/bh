@@ -75,4 +75,36 @@ defmodule Bh.Bh3.ButtonTest do
 
     assert rendered == expected
   end
+
+  test "renders default button when only block with complex text provided" do
+    expected =
+      ~s(<button class="btn btn-default" type="button">)    <>
+        ~s(<span><b>Bold</b> and <i>italic</i> text</span>) <>
+      ~s(</button>)
+
+    rendered =
+      bh_button do
+        {:safe, ["<span><b>Bold</b> and <i>italic</i> text</span>"]}
+      end
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
+
+  test "button with complex block of safe text is rendered properly" do
+    for context <- @contexts do
+      expected =
+        ~s(<button class="btn btn-#{context}" type="button">)  <>
+          ~s(<span><b>Bold</b> and <i>italic</i> text</span>) <>
+        ~s(</button>)
+
+      rendered =
+        bh_button(context: context) do
+          {:safe, ["<span><b>Bold</b> and <i>italic</i> text</span>"]}
+        end
+        |> Phoenix.HTML.safe_to_string
+
+      assert rendered == expected
+    end
+  end
 end

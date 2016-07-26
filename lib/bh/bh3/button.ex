@@ -34,12 +34,24 @@ defmodule Bh.Bh3.Button do
       <%= bh_button "Button" %>
       <button class="btn btn-default" type="button">Button</button>
   """
-  def bh_button(text, opts \\ [])
+  def bh_button(text) when is_binary(text) do
+    bh_button(text, [])
+  end
+  def bh_button([do: block]) do
+    block
+    |> Bh.Service.trim_safe_text
+    |> bh_button_builder
+  end
+  def bh_button(opts, [do: block]) when is_list(opts) do
+    block
+    |> Bh.Service.trim_safe_text
+    |> bh_button_builder(opts)
+  end
   def bh_button(text, opts) when is_list(opts) do
     bh_button_builder(text, opts)
   end
 
-  defp bh_button_builder(text, opts) do
+  defp bh_button_builder(text, opts \\ []) do
     opts = Bh.Service.leave_allowed_opts(opts, @allowed_opts)
 
     final_opts =
