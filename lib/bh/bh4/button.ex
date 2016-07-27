@@ -27,8 +27,9 @@ defmodule Bh.Bh4.Button do
 
     * `:id` - id of the button.
 
-    * `:size` - size of the button. Supported sizes: `:large`, `:small`.
-    By default the `:size` is not set (standard button size).
+    * `:size` - size of the button. Supported sizes: `:large` (alias `:lg`),
+    `:small` (alias `:sm`).  By default the `:size` is not set (standard button
+    size).
 
     * `:layout` - layout of the button. Allowed `:layout` value is `:block`. By
     default `:layout` value is not set (renders standard button layout).
@@ -137,12 +138,14 @@ defmodule Bh.Bh4.Button do
   end
 
   defp put_button_size(final_opts, opts) do
-    allowed_sizes = [:large, :small]
+    allowed_sizes = [:large, :lg, :small, :sm]
 
     if Keyword.has_key?(opts, :size) && opts[:size] in allowed_sizes do
       size_class = case opts[:size] do
         :large -> "btn-lg"
+        :lg    -> "btn-lg"
         :small -> "btn-sm"
+        :sm    -> "btn-sm"
       end
 
       Keyword.put(final_opts, :class, "#{final_opts[:class]} #{size_class}")

@@ -160,15 +160,16 @@ defmodule Bh.Bh4.ButtonTest do
   end
 
   test "all outline button sizes are rendered properly" do
-    sizes = [small: "sm", large: "lg"]
+    sizes = [
+      small: "sm", sm: "sm",
+      large: "lg", lg: "lg"
+    ]
 
     for {key, val} <- sizes do
       expected =
-        """
-        <button class="btn btn-primary-outline btn-#{val}" type="button">\
-        Button\
-        </button>\
-        """
+        ~s(<button class="btn btn-primary-outline btn-#{val}" type="button">) <>
+          ~s(Button)                                                          <>
+        ~s(</button>)
 
       rendered =
         bh_button_outline("Button", size: key)
