@@ -9,7 +9,7 @@ defmodule Bh.Bh3.Button do
 
   @contexts [@default, :primary, :success, :info, :warning, :danger, :link]
 
-  @allowed_opts [:context, :id, :size, :layout]
+  @allowed_opts [:context, :id, :size, :layout, :active]
 
   @doc """
   Generates complex button HTML markup.
@@ -28,6 +28,9 @@ defmodule Bh.Bh3.Button do
 
     * `:layout` - layout of the button. Allowed `:layout` value is `:block`. By
     default `:layout` value is not set (renders standard button layout).
+
+    * `:active` - boolean. If `true` - button is rendered with `active` class,
+    which gives appearance of the pressed button. Default is `false`.
 
   ## Examples
 
@@ -70,6 +73,7 @@ defmodule Bh.Bh3.Button do
       |> Bh.Service.put_id_if_present(opts)
       |> put_button_size(opts)
       |> put_button_layout(opts)
+      |> put_button_active(opts)
 
     content_tag(:button, text, final_opts)
   end
@@ -104,6 +108,14 @@ defmodule Bh.Bh3.Button do
   defp put_button_layout(final_opts, opts) do
     if Keyword.has_key?(opts, :layout) && opts[:layout] == :block do
       Keyword.put(final_opts, :class, "#{final_opts[:class]} btn-block")
+    else
+      final_opts
+    end
+  end
+
+  defp put_button_active(final_opts, opts) do
+    if Keyword.has_key?(opts, :active) && opts[:active] == true do
+      Keyword.put(final_opts, :class, "#{final_opts[:class]} active")
     else
       final_opts
     end
