@@ -9,7 +9,7 @@ defmodule Bh.Bh3.Button do
 
   @contexts [@default, :primary, :success, :info, :warning, :danger, :link]
 
-  @allowed_opts [:context, :id, :size, :layout, :active]
+  @allowed_opts [:context, :id, :size, :layout, :active, :disabled]
 
   @doc """
   Generates complex button HTML markup.
@@ -31,6 +31,9 @@ defmodule Bh.Bh3.Button do
 
     * `:active` - boolean. If `true` - button is rendered with `active` class,
     which gives appearance of the pressed button. Default is `false`.
+
+    * `:disabled` - boolean. If `true` - button looks unclickable (faded).
+    Default is `false`.
 
   ## Examples
 
@@ -74,6 +77,7 @@ defmodule Bh.Bh3.Button do
       |> put_button_size(opts)
       |> put_button_layout(opts)
       |> put_button_active(opts)
+      |> put_button_disabled(opts)
 
     content_tag(:button, text, final_opts)
   end
@@ -116,6 +120,14 @@ defmodule Bh.Bh3.Button do
   defp put_button_active(final_opts, opts) do
     if Keyword.has_key?(opts, :active) && opts[:active] == true do
       Keyword.put(final_opts, :class, "#{final_opts[:class]} active")
+    else
+      final_opts
+    end
+  end
+
+  defp put_button_disabled(final_opts, opts) do
+    if Keyword.has_key?(opts, :disabled) && opts[:disabled] == true do
+      Keyword.put(final_opts, :disabled, "disabled")
     else
       final_opts
     end

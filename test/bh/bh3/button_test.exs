@@ -120,4 +120,17 @@ defmodule Bh.Bh3.ButtonTest do
 
     assert rendered == expected
   end
+
+  test "renders disabled button when disabled: true provided" do
+    expected =
+      ~s(<button class="btn btn-default" disabled="disabled" type="button">) <>
+        ~s(Button)                                                           <>
+      ~s(</button>)
+
+    rendered =
+      bh_button("Button", disabled: true)
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
 end
