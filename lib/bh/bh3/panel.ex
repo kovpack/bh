@@ -7,6 +7,16 @@ defmodule Bh.Bh3.Panel do
 
   use Phoenix.HTML
 
+  @doc """
+  Generates panel HTML markup
+
+  ## Examples
+
+      <%= bh_panel "Panel text" %>
+      <div class="panel panel-default">
+        <div class="panel-body">Panel text</div>
+      </div>
+  """
   def bh_panel(text) when is_binary(text) do
     render_bh_panel(text)
   end
