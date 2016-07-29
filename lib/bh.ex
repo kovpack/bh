@@ -74,6 +74,7 @@ defmodule Bh do
         import Bh.Bh3.Alert
         import Bh.Bh3.Progress
         import Bh.Bh3.Button
+        import Bh.Bh3.Panel
       end
     else
       quote do
