@@ -16,4 +16,20 @@ defmodule Bh.Bh3.PanelTest do
 
     assert rendered == expected
   end
+
+  test "renders panel heading" do
+    expected =
+      ~s(<div class="panel panel-default">)                <>
+        ~s(<div class="panel-heading">Panel heading</div>) <>
+        ~s(<div class="panel-body">)                       <>
+          ~s(Panel text)                                   <>
+        ~s(</div>)                                         <>
+      ~s(</div>)
+
+    rendered =
+      bh_panel("Panel text", heading: "Panel heading")
+      |> Phoenix.HTML.safe_to_string
+
+    assert rendered == expected
+  end
 end
