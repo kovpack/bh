@@ -10,6 +10,10 @@ defmodule Bh.Bh3.Panel do
   @doc """
   Generates panel HTML markup
 
+  ## Options
+
+    * `:heading` - heading of the panel. By default heading is not rendered.
+
   ## Examples
 
       <%= bh_panel "Panel text" %>
