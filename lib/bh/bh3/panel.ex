@@ -3,7 +3,7 @@ defmodule Bh.Bh3.Panel do
   Twitter Bootstrap 3 panel helpers for Phoenix.
   """
 
-  @allowed_opts [:heading]
+  @allowed_opts [:heading, :title]
 
   use Phoenix.HTML
 
@@ -14,14 +14,19 @@ defmodule Bh.Bh3.Panel do
 
     * `:heading` - heading of the panel. By default heading is not rendered.
 
+    * `:title` - heading of the panel, which gets rendered inside <h3> tag with
+    overriden styles.
+
   ## Examples
+
+  Simple panel:
 
       <%= bh_panel "Panel text" %>
       <div class="panel panel-default">
         <div class="panel-body">Panel text</div>
       </div>
 
-  Panel with title
+  Panel with title:
 
       <%= bh_panel "Panel text", heading: "Panel heading" %>
       <div class="panel panel-default">
@@ -44,17 +49,27 @@ defmodule Bh.Bh3.Panel do
   end
 
   defp render_bh_panel(text, opts \\ []) do
-    if Keyword.has_key?(opts, :heading) do
-      content_tag :div, class: "panel panel-default" do
-        [
-          content_tag(:div, opts[:heading], class: "panel-heading"),
-          content_tag(:div, text, class: "panel-body")
-        ]
-      end
-    else
-      content_tag :div, class: "panel panel-default" do
-        content_tag :div, text, class: "panel-body"
-      end
+    cond do
+      Keyword.has_key?(opts, :title) ->
+        content_tag :div, class: "panel panel-default" do
+          [
+            content_tag(:div, class: "panel-heading") do
+              content_tag(:h3, opts[:title], class: "panel-title")
+            end,
+            content_tag(:div, text, class: "panel-body")
+          ]
+        end
+      Keyword.has_key?(opts, :heading) ->
+        content_tag :div, class: "panel panel-default" do
+          [
+            content_tag(:div, opts[:heading], class: "panel-heading"),
+            content_tag(:div, text, class: "panel-body")
+          ]
+        end
+      true ->
+        content_tag :div, class: "panel panel-default" do
+          content_tag :div, text, class: "panel-body"
+        end
     end
   end
 end
