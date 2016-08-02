@@ -3,7 +3,7 @@ defmodule Bh.Bh3.Panel do
   Twitter Bootstrap 3 panel helpers for Phoenix.
   """
 
-  @allowed_opts [:heading, :title]
+  @allowed_opts [:heading, :title, :footer]
 
   use Phoenix.HTML
 
@@ -16,6 +16,8 @@ defmodule Bh.Bh3.Panel do
 
     * `:title` - heading of the panel, which gets rendered inside <h3> tag with
     overriden styles.
+
+    * `:footer` - footer of the panel. By default is not rendered.
 
   ## Examples
 
@@ -35,6 +37,16 @@ defmodule Bh.Bh3.Panel do
           Panel text
         </div>
       </div>
+
+  Panel with footer:
+
+      <%= bh_panel "Panel content", footer: "Panel footer" %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          Panel content
+        </div>
+        <div class="panel-footer">Panel footer</div>
+      </div>
   """
   def bh_panel(text, opts) when is_binary(text) and is_list(opts) do
     render_bh_panel(text, opts)
@@ -49,27 +61,37 @@ defmodule Bh.Bh3.Panel do
   end
 
   defp render_bh_panel(text, opts \\ []) do
+    content_tag :div, class: "panel panel-default" do
+      [
+        render_header(opts),
+        render_content(text),
+        render_footer(opts)
+      ]
+    end
+  end
+
+  defp render_header(opts) do
     cond do
       Keyword.has_key?(opts, :title) ->
-        content_tag :div, class: "panel panel-default" do
-          [
-            content_tag(:div, class: "panel-heading") do
-              content_tag(:h3, opts[:title], class: "panel-title")
-            end,
-            content_tag(:div, text, class: "panel-body")
-          ]
+        content_tag(:div, class: "panel-heading") do
+          content_tag(:h3, opts[:title], class: "panel-title")
         end
       Keyword.has_key?(opts, :heading) ->
-        content_tag :div, class: "panel panel-default" do
-          [
-            content_tag(:div, opts[:heading], class: "panel-heading"),
-            content_tag(:div, text, class: "panel-body")
-          ]
-        end
+        content_tag(:div, opts[:heading], class: "panel-heading")
       true ->
-        content_tag :div, class: "panel panel-default" do
-          content_tag :div, text, class: "panel-body"
-        end
+        ""
+    end
+  end
+
+  defp render_content(text) do
+    content_tag :div, text, class: "panel-body"
+  end
+
+  defp render_footer(opts) do
+    if Keyword.has_key?(opts, :footer) do
+      content_tag :div, opts[:footer], class: "panel-footer"
+    else
+      ""
     end
   end
 end
