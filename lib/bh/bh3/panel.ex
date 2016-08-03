@@ -65,20 +65,12 @@ defmodule Bh.Bh3.Panel do
     render_bh_panel(text, final_opts)
   end
   def bh_panel(text) when is_binary(text) do
-    opts = [
-      context_class: "panel-#{@default_context}"
-    ]
+    opts = [context_class: "panel-#{@default_context}"]
 
     render_bh_panel(text, opts)
   end
-  def bh_panel(opts) when is_list(opts) do
-    opts
-    |> Bh.Service.leave_allowed_opts(@allowed_opts)
-    |> prepare_options
-    |> render_bh_panel
-  end
 
-  defp render_bh_panel(text, opts \\ []) do
+  defp render_bh_panel(text, opts) do
     content_tag :div, class: "panel #{opts[:context_class]}" do
       [
         render_header(opts),
