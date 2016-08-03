@@ -115,7 +115,7 @@ defmodule Bh.Bh4.Button do
       []
       |> Keyword.put(:type, :button)
       |> put_button_context(opts, type)
-      |> Bh.Service.put_id_if_present(opts)
+      |> Bh.Service.put_when_in_list(:id, opts)
       |> put_button_size(opts)
       |> put_button_layout(opts)
       |> Bh.Service.append_extra_css_class(opts)

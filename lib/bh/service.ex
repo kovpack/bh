@@ -12,14 +12,6 @@ defmodule Bh.Service do
     Enum.filter opts, fn {x, _} -> x in allowed_opts end
   end
 
-  def put_id_if_present(final_opts, opts) do
-    if Keyword.has_key? opts, :id do
-      Keyword.put final_opts, :id, "#{opts[:id]}"
-    else
-      final_opts
-    end
-  end
-
   def append_extra_css_class(final_opts, opts) do
     if Keyword.has_key? opts, :class do
       Keyword.put final_opts, :class, "#{final_opts[:class]} #{opts[:class]}"

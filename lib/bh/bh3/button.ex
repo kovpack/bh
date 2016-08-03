@@ -73,7 +73,7 @@ defmodule Bh.Bh3.Button do
       []
       |> Keyword.put(:type, :button)
       |> put_button_context(opts)
-      |> Bh.Service.put_id_if_present(opts)
+      |> Bh.Service.put_when_in_list(:id, opts)
       |> put_button_size(opts)
       |> put_button_layout(opts)
       |> put_button_active(opts)

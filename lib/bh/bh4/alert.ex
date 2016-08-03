@@ -83,7 +83,7 @@ defmodule Bh.Bh4.Alert do
     final_opts =
       []
       |> Keyword.put(:role, "alert")
-      |> Bh.Service.put_id_if_present(opts)
+      |> Bh.Service.put_when_in_list(:id, opts)
       |> put_alert_context(opts)
       |> Bh.Service.append_extra_css_class(opts)
 
