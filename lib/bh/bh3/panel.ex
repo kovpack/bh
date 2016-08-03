@@ -3,7 +3,11 @@ defmodule Bh.Bh3.Panel do
   Twitter Bootstrap 3 panel helpers for Phoenix.
   """
 
-  @allowed_opts [:heading, :title, :footer]
+  @default_context :default
+
+  @contexts [@default_context, :primary, :success, :info, :warning, :danger]
+
+  @allowed_opts [:heading, :title, :footer, :context]
 
   use Phoenix.HTML
 
@@ -18,6 +22,10 @@ defmodule Bh.Bh3.Panel do
     overriden styles.
 
     * `:footer` - footer of the panel. By default is not rendered.
+
+    * `:context` - context of the panel. Default one is `:default`. Supported
+    contexts are `:default`, `:primary`, `:success`, `:info`, `:warning`,
+    `:danger`.
 
   ## Examples
 
@@ -49,19 +57,37 @@ defmodule Bh.Bh3.Panel do
       </div>
   """
   def bh_panel(text, opts) when is_binary(text) and is_list(opts) do
-    render_bh_panel(text, opts)
+    final_opts =
+      []
+      |> put_heading(opts)
+      |> put_title(opts)
+      |> put_footer(opts)
+      |> put_context(opts)
+
+    render_bh_panel(text, final_opts)
   end
   def bh_panel(text) when is_binary(text) do
-    render_bh_panel(text)
+    opts = [
+      context_class: "panel-#{@default_context}"
+    ]
+
+    render_bh_panel(text, opts)
   end
   def bh_panel(opts) when is_list(opts) do
     opts = Bh.Service.leave_allowed_opts(opts, @allowed_opts)
 
-    render_bh_panel(opts)
+    final_opts =
+      []
+      |> put_heading(opts)
+      |> put_title(opts)
+      |> put_footer(opts)
+      |> put_context(opts)
+
+    render_bh_panel(final_opts)
   end
 
   defp render_bh_panel(text, opts \\ []) do
-    content_tag :div, class: "panel panel-default" do
+    content_tag :div, class: "panel #{opts[:context_class]}" do
       [
         render_header(opts),
         render_content(text),
@@ -92,6 +118,42 @@ defmodule Bh.Bh3.Panel do
       content_tag :div, opts[:footer], class: "panel-footer"
     else
       ""
+    end
+  end
+
+  defp put_context(final_opts, opts) do
+    if Keyword.has_key?(opts, :context) && opts[:context] in @contexts do
+      Keyword.put(final_opts, :context_class, "panel-#{opts[:context]}")
+    else
+      IO.puts "default context!"
+      Keyword.put(final_opts, :context_class, "panel-default")
+    end
+  end
+
+  defp put_heading(final_opts, opts) do
+    cond do
+      Keyword.has_key?(opts, :heading) ->
+        Keyword.put(final_opts, :heading, opts[:heading])
+      true ->
+        final_opts
+    end
+  end
+
+  defp put_footer(final_opts, opts) do
+    cond do
+      Keyword.has_key?(opts, :footer) ->
+        Keyword.put(final_opts, :footer, opts[:footer])
+      true ->
+        final_opts
+    end
+  end
+
+  defp put_title(final_opts, opts) do
+    cond do
+      Keyword.has_key?(opts, :title) ->
+        Keyword.put(final_opts, :title, opts[:title])
+      true ->
+        final_opts
     end
   end
 end
