@@ -14,7 +14,7 @@ defmodule Bh.Service do
 
   def put_id_if_present(final_opts, opts) do
     if Keyword.has_key? opts, :id do
-      Keyword.put(final_opts, :id, "#{opts[:id]}")
+      Keyword.put final_opts, :id, "#{opts[:id]}"
     else
       final_opts
     end
@@ -22,7 +22,7 @@ defmodule Bh.Service do
 
   def append_extra_css_class(final_opts, opts) do
     if Keyword.has_key? opts, :class do
-      Keyword.put(final_opts, :class, "#{final_opts[:class]} #{opts[:class]}")
+      Keyword.put final_opts, :class, "#{final_opts[:class]} #{opts[:class]}"
     else
       final_opts
     end
@@ -30,8 +30,8 @@ defmodule Bh.Service do
 
   def put_when_in_list(final_opts, symbol, opts) do
     cond do
-      Keyword.has_key?(opts, symbol) ->
-        Keyword.put(final_opts, symbol, opts[symbol])
+      Keyword.has_key? opts, symbol ->
+        Keyword.put final_opts, symbol, opts[symbol]
       true ->
         final_opts
     end
