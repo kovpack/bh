@@ -4,6 +4,8 @@ defmodule Bh.Bh3.PanelTest do
 
   import Bh.Bh3.Panel
 
+  @contexts [:default, :primary, :success, :info, :warning, :danger]
+
   test "renders default panel with only text" do
     expected =
       ~s(<div class="panel panel-default">)          <>
@@ -74,5 +76,20 @@ defmodule Bh.Bh3.PanelTest do
       |> Phoenix.HTML.safe_to_string
 
     assert rendered == expected
+  end
+
+  test "renders panel with different contexts" do
+    for context <- @contexts do
+      expected =
+        ~s(<div class="panel panel-#{context}">)       <>
+          ~s(<div class="panel-body">Panel text</div>) <>
+        ~s(</div>)
+
+      rendered =
+        bh_panel("Panel text", context: context)
+        |> Phoenix.HTML.safe_to_string
+
+        assert rendered == expected
+    end
   end
 end

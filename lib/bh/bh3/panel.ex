@@ -125,7 +125,6 @@ defmodule Bh.Bh3.Panel do
     if Keyword.has_key?(opts, :context) && opts[:context] in @contexts do
       Keyword.put(final_opts, :context_class, "panel-#{opts[:context]}")
     else
-      IO.puts "default context!"
       Keyword.put(final_opts, :context_class, "panel-default")
     end
   end
