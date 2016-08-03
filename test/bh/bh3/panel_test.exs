@@ -67,7 +67,7 @@ defmodule Bh.Bh3.PanelTest do
       ~s(</div>)
 
     opts = [
-      title: "Panel title",
+      title:  "Panel title",
       footer: "Panel footer"
     ]
 

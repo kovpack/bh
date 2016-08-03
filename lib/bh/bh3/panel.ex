@@ -58,11 +58,9 @@ defmodule Bh.Bh3.Panel do
   """
   def bh_panel(text, opts) when is_binary(text) and is_list(opts) do
     final_opts =
-      []
-      |> Bh.Service.put_when_in_list(:heading, opts)
-      |> Bh.Service.put_when_in_list(:title, opts)
-      |> Bh.Service.put_when_in_list(:footer, opts)
-      |> put_context(opts)
+      opts
+      |> Bh.Service.leave_allowed_opts(@allowed_opts)
+      |> prepare_options
 
     render_bh_panel(text, final_opts)
   end
@@ -74,16 +72,10 @@ defmodule Bh.Bh3.Panel do
     render_bh_panel(text, opts)
   end
   def bh_panel(opts) when is_list(opts) do
-    opts = Bh.Service.leave_allowed_opts(opts, @allowed_opts)
-
-    final_opts =
-      []
-      |> Bh.Service.put_when_in_list(:heading, opts)
-      |> Bh.Service.put_when_in_list(:title, opts)
-      |> Bh.Service.put_when_in_list(:footer, opts)
-      |> put_context(opts)
-
-    render_bh_panel(final_opts)
+    opts
+    |> Bh.Service.leave_allowed_opts(@allowed_opts)
+    |> prepare_options
+    |> render_bh_panel
   end
 
   defp render_bh_panel(text, opts \\ []) do
@@ -127,5 +119,13 @@ defmodule Bh.Bh3.Panel do
     else
       Keyword.put(final_opts, :context_class, "panel-default")
     end
+  end
+
+  defp prepare_options(opts) do
+    []
+    |> Bh.Service.put_when_in_list(:heading, opts)
+    |> Bh.Service.put_when_in_list(:title, opts)
+    |> Bh.Service.put_when_in_list(:footer, opts)
+    |> put_context(opts)
   end
 end
