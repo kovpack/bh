@@ -59,9 +59,9 @@ defmodule Bh.Bh3.Panel do
   def bh_panel(text, opts) when is_binary(text) and is_list(opts) do
     final_opts =
       []
-      |> put_heading(opts)
-      |> put_title(opts)
-      |> put_footer(opts)
+      |> Bh.Service.put_when_in_list(:heading, opts)
+      |> Bh.Service.put_when_in_list(:title, opts)
+      |> Bh.Service.put_when_in_list(:footer, opts)
       |> put_context(opts)
 
     render_bh_panel(text, final_opts)
@@ -78,9 +78,9 @@ defmodule Bh.Bh3.Panel do
 
     final_opts =
       []
-      |> put_heading(opts)
-      |> put_title(opts)
-      |> put_footer(opts)
+      |> Bh.Service.put_when_in_list(:heading, opts)
+      |> Bh.Service.put_when_in_list(:title, opts)
+      |> Bh.Service.put_when_in_list(:footer, opts)
       |> put_context(opts)
 
     render_bh_panel(final_opts)
@@ -126,33 +126,6 @@ defmodule Bh.Bh3.Panel do
       Keyword.put(final_opts, :context_class, "panel-#{opts[:context]}")
     else
       Keyword.put(final_opts, :context_class, "panel-default")
-    end
-  end
-
-  defp put_heading(final_opts, opts) do
-    cond do
-      Keyword.has_key?(opts, :heading) ->
-        Keyword.put(final_opts, :heading, opts[:heading])
-      true ->
-        final_opts
-    end
-  end
-
-  defp put_footer(final_opts, opts) do
-    cond do
-      Keyword.has_key?(opts, :footer) ->
-        Keyword.put(final_opts, :footer, opts[:footer])
-      true ->
-        final_opts
-    end
-  end
-
-  defp put_title(final_opts, opts) do
-    cond do
-      Keyword.has_key?(opts, :title) ->
-        Keyword.put(final_opts, :title, opts[:title])
-      true ->
-        final_opts
     end
   end
 end

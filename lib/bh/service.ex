@@ -27,4 +27,13 @@ defmodule Bh.Service do
       final_opts
     end
   end
+
+  def put_when_in_list(final_opts, symbol, opts) do
+    cond do
+      Keyword.has_key?(opts, symbol) ->
+        Keyword.put(final_opts, symbol, opts[symbol])
+      true ->
+        final_opts
+    end
+  end
 end
