@@ -3,11 +3,11 @@ defmodule Bh.Bh3.Progress do
   Twitter Bootstrap 3 progress bar helpers for Phoenix.
   """
 
+  use Phoenix.HTML
+
   @allowed_opts [:percentage, :context, :striped, :animated]
 
   @contexts [:success, :info, :warning, :danger]
-
-  use Phoenix.HTML
 
   @doc """
   Generates progress bar HTML markup.

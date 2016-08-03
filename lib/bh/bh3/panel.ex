@@ -3,13 +3,13 @@ defmodule Bh.Bh3.Panel do
   Twitter Bootstrap 3 panel helpers for Phoenix.
   """
 
+  use Phoenix.HTML
+
   @default_context :default
 
   @contexts [@default_context, :primary, :success, :info, :warning, :danger]
 
   @allowed_opts [:heading, :title, :footer, :context]
-
-  use Phoenix.HTML
 
   @doc """
   Generates panel HTML markup

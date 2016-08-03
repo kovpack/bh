@@ -8,11 +8,11 @@ defmodule Bh.Bh4.Progress do
   [Project](https://kovpack.github.io/bh/).
   """
 
+  use Phoenix.HTML
+
   @allowed_opts [:percentage, :context, :striped, :animated]
 
   @contexts [:success, :info, :warning, :danger]
-
-  use Phoenix.HTML
 
   @doc """
   Generates progress bar HTML markup.
