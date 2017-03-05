@@ -6,14 +6,14 @@ defmodule Bh.Mixfile do
   def project do
     [
       app: :bh,
-      version: version,
+      version: version(),
       elixir: "~> 1.3",
-      package: package,
-      description: description,
+      package: package(),
+      description: description(),
       source_url: "https://github.com/kovpack/bh",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
-      deps: deps
+      deps: deps()
     ]
   end
 
@@ -31,8 +31,8 @@ defmodule Bh.Mixfile do
 
   defp deps do
     [
-      {:phoenix_html, "~> 2.6"},
-      {:ex_doc, "~> 0.12", only: :dev}
+      {:phoenix_html, "~> 2.9.3"},
+      {:ex_doc, "~> 0.14.5", only: :dev}
     ]
   end
 

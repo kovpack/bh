@@ -14,8 +14,6 @@ defmodule Bh.Bh4.Modal do
 
   @default_id "myModal"
 
-  @allowed_opts [:id, :size, :title]
-
   @doc """
   Generates basic HTML markup for modals.
 
@@ -124,15 +122,13 @@ defmodule Bh.Bh4.Modal do
 
   defp put_proper_id_and_aria_labelled_by(final_opts, opts) do
     if Keyword.has_key? opts, :id do
-      final_opts =
-        final_opts
-        |> Keyword.put(:id, opts[:id])
-        |> Keyword.put(:"aria-labelledby", "#{opts[:id]}Label")
+      final_opts
+      |> Keyword.put(:id, opts[:id])
+      |> Keyword.put(:"aria-labelledby", "#{opts[:id]}Label")
     else
-      final_opts =
-        final_opts
-        |> Keyword.put(:id, @default_id)
-        |> Keyword.put(:"aria-labelledby", "#{@default_id}Label")
+      final_opts
+      |> Keyword.put(:id, @default_id)
+      |> Keyword.put(:"aria-labelledby", "#{@default_id}Label")
     end
   end
 
@@ -140,7 +136,7 @@ defmodule Bh.Bh4.Modal do
     if Keyword.has_key? opts, :title do
       content_tag(:div, class: "modal-header") do
         [
-          build_close_icon,
+          build_close_icon(),
           content_tag(:h4, opts[:title], id: "#{final_opts[:id]}Label", class: "modal-title")
         ]
       end

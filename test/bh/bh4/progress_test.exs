@@ -9,7 +9,7 @@ defmodule Bh.Bh4.ProgressTest do
   test "renders progress by default with value 0 percents" do
     expected =
       ~s(<progress class="progress" max="100" value="0">0%</progress>)
-    rendered = bh_progress |> Phoenix.HTML.safe_to_string
+    rendered = bh_progress() |> Phoenix.HTML.safe_to_string
 
     assert rendered == expected
   end

@@ -109,7 +109,7 @@ defmodule Bh.Bh4.Alert do
 
   defp build_dismissible_alert(text, final_opts) do
     content_tag(:div, final_opts) do
-      [build_close_button, text]
+      [build_close_button(), text]
     end
   end
 

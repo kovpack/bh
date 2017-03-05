@@ -14,7 +14,7 @@ defmodule Bh.Bh3.ProgressTest do
           ~s(<span class="sr-only">0% Complete</span>)                    <>
         ~s(</div>)                                                        <>
       ~s(</div>)
-    rendered = bh_progress |> Phoenix.HTML.safe_to_string
+    rendered = bh_progress() |> Phoenix.HTML.safe_to_string
 
     assert rendered == expected
   end

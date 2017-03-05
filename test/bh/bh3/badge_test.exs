@@ -17,7 +17,7 @@ defmodule Bh.Bh3.BadgeTest do
     expected = ~s(<span class="badge"></span>)
 
     rendered =
-      bh_badge
+      bh_badge()
       |> Phoenix.HTML.safe_to_string
 
     assert rendered == expected
