@@ -31,8 +31,8 @@ defmodule Bh.Mixfile do
 
   defp deps do
     [
-      {:phoenix_html, "~> 2.9.3"},
-      {:ex_doc, "~> 0.14.5", only: :dev, runtime: false}
+      {:phoenix_html, "~> 2.10.5"},
+      {:ex_doc, "~> 0.18.1", only: :dev, runtime: false}
     ]
   end
 
