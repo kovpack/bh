@@ -60,7 +60,7 @@ defmodule Bh.Bh3.Progress do
       "aria-valuenow": final_opts[:percentage],
       "aria-valuemin": 0,
       "aria-valuemax": 100,
-      "style":         "width: #{final_opts[:percentage]}%;"
+      style:           "width: #{final_opts[:percentage]}%;"
     ]
 
     content_tag :div, class: "progress" do

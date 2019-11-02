@@ -7,7 +7,7 @@ defmodule Bh.Mixfile do
     [
       app: :bh,
       version: version(),
-      elixir: "~> 1.3",
+      elixir: "~> 1.9",
       package: package(),
       description: description(),
       source_url: "https://github.com/kovpack/bh",
@@ -31,8 +31,8 @@ defmodule Bh.Mixfile do
 
   defp deps do
     [
-      {:phoenix_html, "~> 2.10.5"},
-      {:ex_doc, "~> 0.18.1", only: :dev, runtime: false}
+      {:phoenix_html, "~> 2.13"},
+      {:ex_doc, "~> 0.21", only: :dev, runtime: false}
     ]
   end
 
